@@ -1,0 +1,149 @@
+.dashboard{
+  position: relative;
+  :global {
+    .ant-card {
+      border-radius: 0;
+      margin-bottom: 24px;
+      &:hover{
+        box-shadow: 4px 4px 40px rgba(0,0,0,.05);
+      }
+    }
+    .ant-card-body{
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  }
+
+  .weather {
+    &:hover {
+      box-shadow: 4px 4px 40px rgba(143,201,251,.6);
+    }
+  }
+
+  .quote {
+    &:hover {
+      box-shadow: 4px 4px 40px rgba(246,152,153,.6);
+    }
+  }
+}
+
+
+.header{
+  color:white;
+}
+.small{
+  height:80px;
+  line-height: 80px;
+  font-size: 14px;
+  text-align: center;
+}
+.small>p{
+  margin:0;
+}
+.small>p>span{
+  color:#fa8c35;
+  font-size: 20px;
+  margin-left:6%;
+}
+.latelyTime{
+  width:98px;
+  height:22px;
+  /* margin-top:-2px; */
+  background: #0db0ca;
+  text-align: center;
+  line-height: 23px;
+  font-size: 14px;
+  color:white;
+  border: none;outline: none;
+}
+.latelyTime:hover{
+  background: rgba(13,176,202,.8);
+  color:white;
+}
+.rightSmall{
+  height:140px;
+  text-align: center;
+  font-size: 24px;
+  color:white;
+  padding-top: 27px;
+}
+.rightSmall>p:nth-child(1){
+  margin-bottom:0;
+}
+.rightSmall>p:nth-child(2){
+  font-size: 14px;
+  color:#1d1d1d;
+  margin-top:16px;
+}
+.rightSmall2{
+  background: #f69899;
+}
+.rightHeader{
+  height:24px;
+}
+@media screen and (max-width:850px){
+  .rightHeader{
+      height:48px;
+  }
+}
+@media screen and (max-width:590px){
+  .rightHeader{
+      height:72px;
+  }
+  .rightHeader>button{
+      margin-left:10px;
+  }
+}
+@media screen and (max-width:520px){
+  .rightHeader{
+      height:120px;
+  }
+}
+.leftTwo_one{
+  width:100%;
+  background:#f8f6f9;
+  height:150px;
+  text-align: center;
+}
+.leftTwo_one>div>img{
+  margin-top:14px;
+}
+.leftTwo_one>div>p:nth-child(2){
+  font-size: 12px;
+  color:#666666;
+  margin-bottom:0;
+  margin-top:12px;
+}
+.leftTwo_one>div>p:nth-child(3){
+  font-size: 16px;
+  color:#000000;
+  margin-bottom:0;
+  margin-top:12px;
+}
+.rightTwo_one{
+  background: #f8f6f9;
+  height:66px;
+  line-height: 66px;
+  width:100%;
+  padding-left:22px;
+}
+.rightTwo_one span{
+  font-size: 14px;
+  color:#000000;
+}
+.rightTwo_one span:nth-child(2){
+  font-size: 20px;
+  color:#ff0000;
+}
+.rightTwo_one span:nth-child(3){
+  margin-left:87px;
+}
+.rightTwo_one span:nth-child(4){
+  font-size: 20px;
+  color:#ff0000;
+}
+@media screen and (max-width:770px){
+  .rightTwo_one{
+      height:132px;
+  }
+}

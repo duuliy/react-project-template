@@ -1,0 +1,12 @@
+.title{
+    text-align: right;
+}
+
+@media screen and (max-width:576px){
+    .title{
+        text-align: left;
+    }
+}
+.top{
+    margin-bottom: 20px;
+}
