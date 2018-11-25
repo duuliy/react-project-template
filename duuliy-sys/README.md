@@ -1,3 +1,3 @@
-yarn 
+yarn or npm i
 
-yarn start
+yarn start  
