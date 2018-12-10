@@ -1,3 +1,3 @@
-yarn or npm i
+yarn or npm install
 
 yarn start  
