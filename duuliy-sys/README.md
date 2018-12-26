@@ -1,6 +1,4 @@
- 
 
-yarn start
 
 yarn or npm install
 
