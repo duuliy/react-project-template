@@ -1,0 +1,116 @@
+html,
+body {
+    font-family: PingFang SC, Microsoft YaHei, Helvetica Neue, Helvetica, Hiragino Sans GB, SimSun, sans-serif;
+    height: 100vh;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    /*静止数字变电话*/
+    /*text-decoration : none;*/
+}
+
+/*添加*/
+
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+tbody,
+article,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0
+}
+
+/* 清除a的默认样式  */
+
+a,
+a:hover,
+a:active,
+a:link {
+    text-decoration: none;
+    color: #333;
+}
+
+
+ul,
+li {
+    list-style: none;
+}
+
+/* 按钮点击波纹 */
+.ripple {
+    position: relative; //隐藏溢出的径向渐变背景
+    overflow: hidden;
+}
+
+.ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; //设置径向渐变
+    background-image: radial-gradient(circle, #41556c 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .3s, opacity .5s;
+}
+
+.ripple:active:after {
+    transform: scale(0, 0);
+    opacity: .3; //设置初始状态
+    transition: 0s;
+}
+
+/* 浮动与清除浮动 */
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}

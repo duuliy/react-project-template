@@ -7,9 +7,9 @@
 
 
 
-// import fetch from 'dva/fetch';
 import axios from 'axios'
-import qs from 'qs'
+// import { getToken } from '../utils/utils.js'
+// import qs from 'qs'
 
 
 function parseJSON(response) {
@@ -47,98 +47,62 @@ let token = '';
  * @param  {object} [params] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
-export default function fetch(type, url, params) {
-  if (type == 'post') {
+
+const fetch = (method, url, data) => {
+  const token = 'Bearer '+getToken();
+  if (method === "get") {
     return new Promise((resolve, reject) => {
-      axios.post(url, qs.stringify(params), {
-          // headers: {
-          //     'Content-Type': 'application/x-www-form-urlencoded',
-          //     'Accept': 'application/json'
-          //     // 'App-Token': token
-          // },
-          // withCredentials: true
-        })
-        .then(checkStatus)
-        .then(parseJSON)
-        .then(response => {
-          resolve(response.data);
-        })
-        .catch((error) => {
-          reject(error)
-        })
-    });
-  } else if (type == 'get') {
-    return new Promise((resolve, reject) => {
-      axios.get(url, {
-          // headers: {
-          //     'Content-Type': 'application/x-www-form-urlencoded',
-          //     'Accept': 'application/json'
-          //     // 'App-Token': token
-          // },
-          // withCredentials: true
-        })
-        .then(checkStatus)
-        .then(parseJSON)
-        .then(response => {
-          resolve(response.data);
-        })
-        .catch((error) => {
-          reject(error)
-        })
-    });
-  } else if (type == 'delete') {
-    return new Promise((resolve, reject) => {
-      axios.delete(url, qs.stringify(params), {
+      axios.get(baseUrl + url, {
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'application/json'
-          },
-          // withCredentials: true
+            'Authorization': token
+          }
         })
         .then(checkStatus)
         .then(parseJSON)
         .then(response => {
-          resolve(response.data);
+          resolve(response);
         })
-        .catch((error) => {
-          reject(error)
-        })
+        .catch(error => {
+          reject(error);
+        });
     });
-  } else if (type == 'patch') {
-    return new Promise((resolve, reject) => {
-      axios.patch(url, qs.stringify(params), {
+  } else if (method === "delete") {
+    return new Promise((resovle, reject) => {
+      axios.delete(baseUrl + url, {
+          data: data,
           headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          // withCredentials: true
+            'Authorization': token
+          }
         })
         .then(checkStatus)
         .then(parseJSON)
         .then(response => {
-          resolve(response.data);
+          resovle(response);
         })
-        .catch((error) => {
-          reject(error)
-        })
+        .catch(error => {
+          reject(error);
+        });
     });
-  } else if (type == 'put') {
-    return new Promise((resolve, reject) => {
-      axios.put(url, qs.stringify(params), {
+  } else {
+    return new Promise((resovle, reject) => {
+      axios({
+          method: method,
+          url: baseUrl + url,
+          data: data,
           headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          // withCredentials: true
+            'Authorization': token
+          }
         })
         .then(checkStatus)
         .then(parseJSON)
         .then(response => {
-          resolve(response.data);
+          resovle(response);
         })
-        .catch((error) => {
-          reject(error)
-        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
-}
+};
+
+export default fetch
