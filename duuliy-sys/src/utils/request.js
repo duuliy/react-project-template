@@ -8,7 +8,8 @@
 
 
 import axios from 'axios'
-// import { getToken } from '../utils/utils.js'
+import { getToken } from './user.js'
+import { baseUrl } from './env.js'
 // import qs from 'qs'
 
 
@@ -37,8 +38,7 @@ function checkStatus(response) {
 //     window.Promise = Promise;
 // }
 
-let token = '';
-// let token = 'eyJ1aWQiOjMzNjkyfQ==.LHs1ggJVnKw1qEW8ta8jvQYyyTXpDEvsJFj4z9nD6h6WKcThhDFpxOrwPiaaymfEm39NKhvezYG0Cau4JIn+oA==';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6Ijc2NTU3Yzg4LTU2NDktNDA0YS1iMTM0LTU0OGNhOWFlZTk4NyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiYjc3OTNjODMtYmNhMy00NWM3LTkyNjktNzcwN2ZhMTM5ZjRlIiwiZXhwIjoxNTQ2ODMyNDMyLCJpc3MiOiJodHRwczovL3d3dy5jdGM2NjYuY29tIiwiYXVkIjoiaHR0cHM6Ly93d3cuY3RjNjY2LmNvbSJ9.l-bfSLSTLZdsqbTMBRzq_xUy4jyx5RZnV73KFvvS1C4';
 /**
  * Requests a URL, returning a promise.
  *
@@ -49,7 +49,7 @@ let token = '';
  */
 
 const fetch = (method, url, data) => {
-  const token = 'Bearer '+getToken();
+  // const token = 'Bearer '+getToken();
   if (method === "get") {
     return new Promise((resolve, reject) => {
       axios.get(baseUrl + url, {
