@@ -32,3 +32,30 @@ const setUser = (info,callback) => {
     localStorage.removeItem('userinfo');
     console.log(localStorage.getItem('userinfo'));
   };
+  /**
+ * 存token
+ * @param {Object} info 用户信息
+ * @param {Function} callback 回调函数
+ */
+const setToken = (info, callback) => {
+  localStorage.setItem("wt-token", escape(JSON.stringify(info)));
+  if (callback) {
+    callback();
+  }
+};
+/**
+ * 获取token
+ */
+const getToken = () => {
+  let info = localStorage.getItem("wt-token");
+  return JSON.parse(unescape(info));
+};
+
+
+export {
+  setToken,
+  getToken,
+  setUser,
+  getUser,
+  removeUser
+};
