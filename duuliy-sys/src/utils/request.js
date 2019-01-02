@@ -13,10 +13,6 @@ import { baseUrl } from './env.js'
 // import qs from 'qs'
 
 
-function parseJSON(response) {
-  return response.json();
-}
-
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -58,7 +54,6 @@ const fetch = (method, url, data) => {
           }
         })
         .then(checkStatus)
-        .then(parseJSON)
         .then(response => {
           resolve(response);
         })
@@ -75,7 +70,6 @@ const fetch = (method, url, data) => {
           }
         })
         .then(checkStatus)
-        .then(parseJSON)
         .then(response => {
           resovle(response);
         })
@@ -94,7 +88,6 @@ const fetch = (method, url, data) => {
           }
         })
         .then(checkStatus)
-        .then(parseJSON)
         .then(response => {
           resovle(response);
         })
