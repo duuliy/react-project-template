@@ -50,6 +50,20 @@ const getToken = () => {
   let info = localStorage.getItem("wt-token");
   return JSON.parse(unescape(info));
 };
+/**
+ * 获取当前时间
+ */
+const getNowdate = () => {
+  let nowdate=new Date();
+  nowdate.setMonth(nowdate.getMonth()-0);
+  let y = nowdate.getFullYear();
+  let m = nowdate.getMonth()+1;
+  let d = nowdate.getDate();
+  let formatwdate = y+'-'+m+'-'+d;
+  return formatwdate;
+};
+
+
 
 
 export {
@@ -57,5 +71,6 @@ export {
   getToken,
   setUser,
   getUser,
-  removeUser
+  removeUser,
+  getNowdate
 };
