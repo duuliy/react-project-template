@@ -31,6 +31,21 @@ const validateMail = value => {
   return /^([a-z0-9A-Z]+[-|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$/.test(value)
 }
 
+//用户名
+const validateUserName = value => {
+  return /^[a-zA-Z]\w{3,}/.test(value)
+}
+
+//电话号码
+const validatePhoneNum = value => {
+  return /^1[0-9]{10}$/.test(value)
+}
+
+//自定义密码验证
+const validateMsg = value => {
+  return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/.test(value)
+}
+
 //昵称
 const validateName = (value) => {
   return /^[a-zA-Z\u4E00-\u9FA5\._\$!@#^*()+~`\/?,%&\*\!]{1,20}$/.test(value)
@@ -107,6 +122,9 @@ export {
   validateYqm,
   validateChinaPhone,
   validateMail,
+  validateUserName,
+  validatePhoneNum,
+  validateMsg,
   validateName,
   validatePassWord,
   validateTraderPwd,
