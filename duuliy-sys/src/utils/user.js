@@ -2,10 +2,16 @@
  * @Author: duuliy 
  * @Date: 2018-11-15 11:17:11 
  * @Last Modified by: duuliy
- * @Last Modified time: 2018-11-15 11:17:11 
+ * @Last Modified time: 2019-2-11 16:17:11 
  */
 
 // import { intercept } from "./Interceptor";
+import {
+  formatMessage,
+  setLocale,
+  getLocale,
+  FormattedMessage,
+} from 'umi/locale';
 /**
  * 存用户信息
  * @param {Object} info 用户信息
@@ -38,7 +44,7 @@ const setUser = (info,callback) => {
  * @param {Function} callback 回调函数
  */
 const setToken = (info, callback) => {
-  localStorage.setItem("wt-token", escape(JSON.stringify(info)));
+  localStorage.setItem("userToken", escape(JSON.stringify(info)));
   if (callback) {
     callback();
   }
@@ -47,7 +53,7 @@ const setToken = (info, callback) => {
  * 获取token
  */
 const getToken = () => {
-  let info = localStorage.getItem("wt-token");
+  let info = localStorage.getItem("userToken");
   return JSON.parse(unescape(info));
 };
 /**
@@ -62,6 +68,31 @@ const getNowdate = () => {
   let formatwdate = y+'-'+m+'-'+d;
   return formatwdate;
 };
+/**
+ * 获取web端对应的语言
+ */
+const i18n=()=>{
+  const language =(navigator.language || navigator.browserLanguage).substring(0,2);
+  let lang=localStorage.getItem('locale') || language
+  if(lang==='zh'){
+    return 'zh-CN'
+  }else if(lang==='en'){
+    return 'en-US'
+  }else if(lang==='ko'){
+    return 'ko-KR'
+  }
+}
+/**
+ * 全局语言方法
+ */
+
+global.setLocal=(i18n)=>{
+  return setLocale(i18n)
+}
+
+global.formatMsg=(id)=>{
+  return formatMessage({id:id})
+}
 
 
 
@@ -72,5 +103,6 @@ export {
   setUser,
   getUser,
   removeUser,
-  getNowdate
+  getNowdate,
+  i18n
 };
