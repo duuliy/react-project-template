@@ -16,6 +16,16 @@ const GetByQueryAsync=(data)=> request('patch','/api/App/GetByQueryAsync',data)
 
 const logoutUser=()=>'/user/login'
 
+//退出登录
+const SignOutAsync=(data)=> fetch('get','/api/App/SignOutAsync')
+
+/**
+ * 组织机构
+ */
+
+//组织机构
+const GetByQuery = data => fetch('post', '/api/Organization/GetByQuery', data)
+
 
 
 export {
@@ -24,5 +34,7 @@ export {
 	UpdateAsync,
     DeleteAsync,
     GetByQueryAsync,
-    logoutUser
+    logoutUser,
+  SignOutAsync,
+  GetByQuery
 }
