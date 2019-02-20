@@ -8,6 +8,8 @@ const Footer = ({footer}) => {
   return (
     <div className='footer'>
         这是{footer}
+      {/* global.formatMsg("lang") */}
+        {/* {global.formatMsg("lang")} */}
     </div>
   );
 };
