@@ -1,6 +1,10 @@
-# cloud-music
+# cloud
 
-> react企业级后台系统模板
+> react企业级后台系统模板   项目模板,支持按需加载 <br/>
+
+## 相关技术栈
+
+*  react+antd+less+axios+dva+roadhog+react-router+es6+Babel
 
 ## Build Setup
 
@@ -18,3 +22,6 @@ npm run build
 npm run build --report
 ```
 
+## License
+
+[MIT](https://github.com/lijinke666/react-project-template/blob/master/LICENCE)
