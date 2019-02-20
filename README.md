@@ -24,4 +24,4 @@ npm run build --report
 
 ## License
 
-[MIT](https://github.com/duuliy/React-duuliy-project-templat/edit/master/README.md
+[MIT](https://github.com/duuliy/React-duuliy-project-templat)
