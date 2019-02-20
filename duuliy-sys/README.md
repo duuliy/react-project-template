@@ -1,6 +1,6 @@
 # cloud-music
 
-> 个人使用 react企业级后台系统模板
+> react企业级后台系统模板
 
 ## Build Setup
 
