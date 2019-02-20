@@ -13,64 +13,64 @@ export default {
     '@v': reso(__dirname, './public'),
     '@u': reso(__dirname, './src/utils')
   },
-  routes: [{
-    path: '/',
-    redirect: '/manage/organization',
-  },
-  {
-    path: '/',
-    component:'../layouts/index.jsx',
-		routes:[
-      {
-        path: '/manage/organiZation',
-        component:'manage/organization/index.jsx',
-      },
-      {
-        path: '/manage/userStati',
-        component:'manage/userStati/index.jsx',
-      },
-      {
-        path: '/manage/rightsManagement',
-        component:'manage/rightsManagement/index.jsx',
-      },
-      {
-        path: '/manage/encryptedDogManagement',
-        component:'manage/encryptedDogManagement/index.jsx',
-      },
-      {
-        path: '/manage/topUpCenter',
-        component:'manage/topUpCenter/index.jsx',
-      },
+//   routes: [{
+//     path: '/',
+//     redirect: '/manage/organization',
+//   },
+//   {
+//     path: '/',
+//     component:'../layouts/index.jsx',
+// 		routes:[
+//       {
+//         path: '/manage/organiZation',
+//         component:'manage/organization/index.jsx',
+//       },
+//       {
+//         path: '/manage/userStati',
+//         component:'manage/userStati/index.jsx',
+//       },
+//       {
+//         path: '/manage/rightsManagement',
+//         component:'manage/rightsManagement/index.jsx',
+//       },
+//       {
+//         path: '/manage/encryptedDogManagement',
+//         component:'manage/encryptedDogManagement/index.jsx',
+//       },
+//       {
+//         path: '/manage/topUpCenter',
+//         component:'manage/topUpCenter/index.jsx',
+//       },
 
-      {
-        path: '/register',
-        component:'register/index.jsx',
-      },
+//       {
+//         path: '/register',
+//         component:'register/index.jsx',
+//       },
 
-      {
-        path: '/statireport/corporateTranslationStatistics',
-        component:'statireport/corporateTranslationStatistics/index.jsx',
-      },
-      {
-        path: '/statireport/reswordcount',
-        component:'statireport/reswordcount/index.jsx',
-      },
-      {
-        path: '/statireport/userTranslationDetailStatistics',
-        component:'statireport/userTranslationDetailStatistics/index.jsx',
-      },
-      {
-        path: '/statireport/userTranslationStatistics',
-        component:'statireport/userTranslationStatistics/index.jsx',
-      },
+//       {
+//         path: '/statireport/corporateTranslationStatistics',
+//         component:'statireport/corporateTranslationStatistics/index.jsx',
+//       },
+//       {
+//         path: '/statireport/reswordcount',
+//         component:'statireport/reswordcount/index.jsx',
+//       },
+//       {
+//         path: '/statireport/userTranslationDetailStatistics',
+//         component:'statireport/userTranslationDetailStatistics/index.jsx',
+//       },
+//       {
+//         path: '/statireport/userTranslationStatistics',
+//         component:'statireport/userTranslationStatistics/index.jsx',
+//       },
 
-      {
-        path: '/404',
-        component:'404',
-      },
-    ]
-  }
-  ],
+//       {
+//         path: '/404',
+//         component:'404',
+//       },
+//     ]
+//   }
+//   ],
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
