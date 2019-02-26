@@ -103,6 +103,7 @@ export default {
   proxy: {
     "/api": {
       target: "http://localhost:38080",
+      secure: false,  //是否验证证书
       changeOrigin: true,
       pathRewrite: {
         "^/api": "/api"
