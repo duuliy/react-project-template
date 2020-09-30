@@ -1,12 +1,12 @@
+@import 'vars.less';
 html,
 body {
-    font-family: PingFang SC, Microsoft YaHei, Helvetica Neue, Helvetica, Hiragino Sans GB, SimSun, sans-serif;
-    height: 100vh;
-    margin: 0;
-    font-size: 12px;
-    font-weight: 500;
-    /*静止数字变电话*/
-    /*text-decoration : none;*/
+  font-family: PingFang SC, Microsoft YaHei, Helvetica Neue, Helvetica, Hiragino Sans GB, SimSun,
+    sans-serif;
+  height: 100vh;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /*添加*/
@@ -44,135 +44,109 @@ hgroup,
 menu,
 nav,
 section {
-    margin: 0;
-    padding: 0
+  margin: 0;
+  padding: 0;
 }
 
 /* 清除a的默认样式  */
-
-
 a,
 a:hover,
 a:active,
 a:link {
-    text-decoration: none;
-    color: #333;
+  text-decoration: none;
+  color: #333;
 }
-
 
 ul,
 li {
-    list-style: none;
-}
-
-/* 按钮点击波纹 */
-.ripple {
-    position: relative; //隐藏溢出的径向渐变背景
-    overflow: hidden;
-}
-
-.ripple:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none; //设置径向渐变
-    background-image: radial-gradient(circle, #41556c 10%, transparent 10.01%);
-    background-repeat: no-repeat;
-    background-position: 50%;
-    transform: scale(10, 10);
-    opacity: 0;
-    transition: transform .3s, opacity .5s;
-}
-
-.ripple:active:after {
-    transform: scale(0, 0);
-    opacity: .3; //设置初始状态
-    transition: 0s;
+  list-style: none;
 }
 
 /* 浮动与清除浮动 */
 
 .fl {
-    float: left;
+  float: left;
 }
 
 .fr {
-    float: right;
+  float: right;
 }
-
+table tr td:not(.ant-table-selection-column) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .clearfix:after {
-    content: "";
-    display: block;
-    visibility: hidden;
-    height: 0;
-    clear: both;
+  content: '';
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
 }
 
 .clearfix {
-    zoom: 1;
+  zoom: 1;
 }
-//左右浮动
-.fl{
-	float:left !important;
-}
-
-.fr{
-	float:right !important;
+.no-padding {
+  padding: 0 !important;
 }
 
+.disable-btn {
+  color: #bbb !important;
+}
 /*水平垂直居中(不确定宽高)*/
 
 .wh-center {
-	position: absolute !important;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
-
 
 /*垂直居中(不确定高)*/
 
 .h-center {
-	position: absolute !important;
-	top: 50%;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
+  position: absolute !important;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
-
-
-/*不换行溢出显示...*/
-
-.eps {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+//禁止样式
+.disable {
+  border-color: #c2c2c2;
+  color: #c2c2c2;
+  cursor: not-allowed;
+  &:hover {
+    border-color: #c2c2c2;
+    color: #c2c2c2;
+  }
+}
+// 居中按钮
+.button-center {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  .ant-btn-primary {
+    width: 90px;
+    border-radius: 2px;
+    margin-right: 30px;
+  }
+  .ant-btn-background-ghost {
+    margin-right: 0;
+  }
 }
 
-//颜色
-
-.blue{
-    background-color: rgba(95, 146, 239, 1);
-    border-color:rgba(95, 146, 239, 1);
-}
-
-.disable{
-    border-color:#C2C2C2;
-    color:#C2C2C2;
-    cursor: not-allowed;
-    &:hover{
-        border-color:#C2C2C2;
-        color:#C2C2C2;
-    }
+//文字超长，截断，以...代替
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

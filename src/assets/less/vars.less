@@ -1,148 +1,59 @@
 //风格配置
-@primary-color: #31c27c;
-@warning-color: #FAAD14;
-@error-color: #E41C1E;
-@success-color: #35C613;
-@info-color: #1890ff;
-@bg-color: #FAFAFA;
-@border-color: #e8e8e8;
-@label-color: #333;
-@default-color: #d9d9d9;
-@loading-color: darken(@info-color, 10%);
-@font-color: rgba(0, 0, 0, .65);
-@disabled-color: #f5f5f5;
-@disabled-font-color: fade(@font-color, 25%);
-@font-size: 14px;
-@border-radius: 4px;
-@default-shadow:0 4px 12px rgba(0, 0, 0, 0.15);
-
+@main-color: #39487d;
+@red-color: #f5222d;
+@blue-color: #3b6cff;
+@btn-green-color: #daf6ec;
+@btn-blue-color: #dfe7ff;
+@table-th-color: #e8eaf1;
+@table-td-color: #e2e7f8;
+@table-row-color: #f2f5fa;
+@font-green-color: #00d8a0;
+@font-blue-color: #3b6cff;
+@whitw-color: #fff;
+@pagination-text-color: #9da1a8;
+@detail-label-color: #8b909a; // 详情页面label文字颜色
+@select-dropdown-color: #bfc6d2;
+@select-dropdown-li-color: #979fad;
+@select-dropdown-bg-color: #ebf0ff;
+@modal-action-color: #a7acb7;
+// 一列的宽度
+@filter-form-item-width: 240px;
+// 两列的宽度
+@filter-form-item-width-tow: 638px;
 //动画时间
-@loading-time: 1s;
-@loading-opacity: .7;
-@animate-time : .5s;
-@animate-type: cubic-bezier(0.165, 0.84, 0.44, 1);
-@default-transition: @animate-time @animate-type;
-
 
 //Button 按钮
-@button-default-height: 40px;
-@button-small-height: 30px;
-@button-large-height: 50px;
-@button-default-font-size: @font-size;
-@button-large-font-size : 16px;
-@button-small-font-size : 12px;
-@button-small-padding: 0 10px;
-@button-large-padding: 0 40px;
-@button-default-padding: 0 30px;
 
 //Input 输入框
-@input-height: 40px;
-@input-padding: 4px 10px;
-@input-box-shadow:0 0 0 2px fade(@primary-color, 20%);
 
 //Grid
-@max-col-length : 24;
-@max-row-width : 100%;
 
 //message 消息提示
-@message-show-time: @animate-time;
-@message-theme-dark-bg: rgba(0, 0, 0, .5);
-@message-theme-light-bg: #fff;
-@message-theme-dark-font-color: #fff;
-@message-z-index: 999;
-@message-width: 300px;
-@message-height: 180px;
-@message-width-sm: 200px;
-@message-padding: 12px 25px;
-@message-title-size: 24px;
-@message-title-size-sm: 16px;
-@message-icon-font-size: 45px;
-@message-icon-font-size-sm: 25px;
 
 //Tooltip 文字提示
-@tooltip-bg-color: #444;
-@tooltip-font-color: #fff;
-@tooltip-padding: 5px 15px;
-@tooltip-triangle-width: 10px;   //三角形
-
 
 //Pagination 分页器
-@pagination-offset: 0 15px;
 
 //Alert 警告提示
-@alert-padding: 8px 15px;
-@alert-message-font-size : @font-size + 2px;
-@alert-message-margin : 0 0 8px 0;
-@alert-icon-margin: 0 5px 0 0;
 
 //Modal 对话框
-@modal-bg-color: #fff;
-@modal-z-index: 999;
-@modal-padding: 20px;
-@modal-footer-padding: 15px 20px;
-@modal-title-font-size: 16px;
-@modal-header-padding: 5px 10px;
-@modal-close-font-size: 20px;
-@modal-close-font-color: rgba(0, 0, 0, .45);
-@modal-mask-color: rgba(0, 0, 0, .65);
-@modal-offset-top: 100px;
-@modal-width : 520px;
-@modal-confirm-width : 420px;
 
 //Spin 加载中
-@spin-small-size: 24px;
-@spin-default-size: 32px;
-@spin-large-size: 40px;
-@spin-blur-opacity: .5;
-@spin-blur-filter: 1.5px;
 
 //BackTop 回到顶部
-@back-top-offset-right: 30px;
-@back-top-offset-bottom: 30px;
-@back-top-inner-width : 50px;
-@back-top-inner-height : 50px;
 
 //Progress 进度条
-@progress-height : 12px;
-@progress-border-radius: 20px;
-@progress-bg-offset : 15px 15px;
-@progress-animate-time: 15s;
 
 //Tabs 选项卡
-@tabs-tab-offset : 30px;
-@tabs-tab-padding : 10px 30px;
-@tabs-content-padding : 20px;
-@tabs-card-tab-offset: 2px;
 
 //Badge 徽标数
-@badge-width : 20px;
-@badge-height: 20px;
-@badge-z-index: 99;
-@badge-padding: 0 6px;
-@badge-font-size: 12px;
-@badge-dot-width : 8px;
 
 //Dropdown 下拉菜单
-@cuke-dropdown-z-index: 88;
 
 //Drawer 抽屉
-@cuke-drawer-z-index: 999;
-@cuke-drawer-width: 260px;
-@cuke-drawer-height: 260px;
-@cuke-drawer-animate-type: .3s cubic-bezier(.9, 0, .3, .7);
 
 //Radio 单选框
-@cuke-radio-width : 14px;
-@cuke-radio-height : @cuke-radio-width;
-@cuke-radio-offset-right: 6px;
-@cuke-radio-group-offset-right: 20px;
 
 //Container 包裹容器
-@container-width: 1200px;
-@container-padding: 12px 20px;
 
 //Timeline 时间轴
-@cuke-timeline-content-offset: 0 0 0 20px;
-@cuke-timeline-line-width: 2px;
-@cuke-timeline-dot-width: 10px;
-@cuke-timeline-dot-height: 10px;

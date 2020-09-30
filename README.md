@@ -1,10 +1,6 @@
-# cloud
-
-> 老版本umi用 <br/>
-
 ## 相关技术栈
 
-*  react+antd+less+axios+dva+roadhog+react-router+es6+Babel
+*  react+antd+less+axios+dva+es6+Babel
 
 ## Build Setup
 
@@ -22,6 +18,3 @@ npm run build
 npm run build --report
 ```
 
-## License
-
-[MIT](https://github.com/duuliy/React-duuliy-project-templat)

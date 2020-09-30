@@ -1,113 +1,106 @@
-import {resolve as reso} from "path";
+import { defineConfig } from 'umi'
+import { resolve as reso } from 'path'
 
-// ref: https://umijs.org/config/
-export default {
-  history: 'hash',
-  targets: {
-    ie: 11,
+export default defineConfig({
+  title: 'duuliy Page',
+  history: {
+    type: 'hash',
   },
-  publicPath: "./",
-  disableCSSModules: true,
+  publicPath: './',
+  hash: true,
+  // devServer: {
+  //   https: true
+  // },
+  antd: {
+    // dark: true,
+  },
+  dva: {
+    immer: true,
+  },
+  nodeModulesTransform: {
+    type: 'none',
+    exclude: [],
+  },
+  targets: {
+    chrome: 58,
+    ie: 9,
+  },
+  dynamicImport: {},
+  // manifest:{},
+  // layout: {},
+  // esbuild: {}, //加载慢了考虑使用
+  links: [
+    {
+      rel: 'stylesheet',
+      href: 'http://localhost:9000/bigemap.js/v2.1.0/bigemap.css',
+    },
+  ],
+  scripts: [
+    'https://webapi.amap.com/maps?v=2.0&key=4a5b71a582d1245762d01a6cec855f61',
+    'https://webapi.amap.com/ui/1.1/main.js?v=1.1.1',
+    'http://localhost:9000/bigemap.js/v2.1.0/bigemap.js',
+    // 'http://localhost:9000/Public/offline/huge/glify.js',
+  ],
+  metas: [
+    {
+      name: 'title',
+      content: 'duuliy',
+    },
+    {
+      name: 'keywords',
+      content: 'duuliy',
+    },
+    {
+      name: 'description',
+      content: 'duuliy',
+    },
+  ],
+  locale: {
+    default: 'zh-CN',
+    antd: true,
+    title: false,
+    baseNavigator: false,
+    baseSeparator: '-',
+  },
+  // routes: [{
+  //     path: '/',
+  //     component: '@/pages/index'
+  //   },
+  //   {
+  //     path: '/onLineMap',
+  //     component: '@/pages/onLineMap',
+  //     access: 'onLineMap', // 权限定义返回值的某个 key
+  //   }
+  // ],
+
+  // plugins: [  离线插件引用
+  //   // `${__dirname}/plugin/mapPlugin.js`,
+  //   './plugin/mapPlugin.js'
+  //   // [require.resolve('./plugin/mapPlugin.js')]
+  // ]
   alias: {
     '@': reso(__dirname, './src'),
-    '@v': reso(__dirname, './public'),
-    '@u': reso(__dirname, './src/utils')
+    '@a': reso(__dirname, './src/assets'),
+    '@p': reso(__dirname, './public'),
+    '@c': reso(__dirname, './src/components'),
+    '@u': reso(__dirname, './src/utils'),
+    '@s': reso(__dirname, './src/services'),
   },
-//   routes: [{
-//     path: '/',
-//     redirect: '/manage/organization',
-//   },
-//   {
-//     path: '/',
-//     component:'../layouts/index.jsx',
-// 		routes:[
-//       {
-//         path: '/manage/organiZation',
-//         component:'manage/organization/index.jsx',
-//       },
-//       {
-//         path: '/manage/userStati',
-//         component:'manage/userStati/index.jsx',
-//       },
-//       {
-//         path: '/manage/rightsManagement',
-//         component:'manage/rightsManagement/index.jsx',
-//       },
-//       {
-//         path: '/manage/encryptedDogManagement',
-//         component:'manage/encryptedDogManagement/index.jsx',
-//       },
-//       {
-//         path: '/manage/topUpCenter',
-//         component:'manage/topUpCenter/index.jsx',
-//       },
-
-//       {
-//         path: '/register',
-//         component:'register/index.jsx',
-//       },
-
-//       {
-//         path: '/statireport/corporateTranslationStatistics',
-//         component:'statireport/corporateTranslationStatistics/index.jsx',
-//       },
-//       {
-//         path: '/statireport/reswordcount',
-//         component:'statireport/reswordcount/index.jsx',
-//       },
-//       {
-//         path: '/statireport/userTranslationDetailStatistics',
-//         component:'statireport/userTranslationDetailStatistics/index.jsx',
-//       },
-//       {
-//         path: '/statireport/userTranslationStatistics',
-//         component:'statireport/userTranslationStatistics/index.jsx',
-//       },
-
-//       {
-//         path: '/404',
-//         component:'404',
-//       },
-//     ]
-//   }
-//   ],
-  plugins: [
-    // ref: https://umijs.org/plugin/umi-plugin-react.html
-    ['umi-plugin-react', {
-      antd: true,
-      dva: true,
-      // dynamicImport: {
-      //   loadingComponent: './components/PageLoading/PageLoading',
-      // },
-      dynamicImport: true,
-      title: 'umi-sys',
-      dll: false,
-      routes: [{
-          include: [/.*/],
-          exlude: [/(\/(en|zh))*\/login/]
-        },
-        {
-          include: [/.*/],
-          exlude: [/(\/(en|zh))*\/register/]
-        }
-      ],
-      hardSource: false,
-      locale: {
-        enable: true, // default false
-        default: 'zh-CN', // default zh-CN
-        baseNavigator: true, // default true, when it is true, will use `navigator.language` overwrite default
-      },
-
-    }]
-  ],
+  //修改webpack配置
+  // chainWebpack(memo, { env, webpack, createCSSRule }) {
+  //   // 设置 alias
+  //   memo.resolve.alias.set('foo', '/tmp/a/b/foo');
+  //   // 删除 umi 内置插件
+  //   memo.plugins.delete('copy');
+  // },
   proxy: {
-    "/api": {
-      target: "http://localhost:38080",
-      secure: false,  //是否验证证书
+    '/api': {
+      target: 'http://10.240.50.105:8110',
+      secure: false,
       changeOrigin: true,
       pathRewrite: {
-        "^/api": "/api"
-      }
-    }
+        '^/api': '/api',
+      },
+    },
   },
-}
+})

@@ -1,69 +1,51 @@
-    /* antd style */
+@import '../assets/less/common.less';
+@import '../assets/less/vars.less';
+@import '../assets/less/antdCom.less';
 
-    .ant-layout.ant-layout-has-sider {
-        height: 100%;
-    }
+@prefixCls: BasicLayout;
 
-    @prefixCls: BasicLayout;
-    .@{prefixCls} {
-        //content
-        //menu
-        .ant-layout-sider-children {
-            .logo {
-                height: 32px;
-                margin: 16px;
-                img {
-                    height: 32px;
-                }
-                span {
-                    color: rgba(29, 169, 255, 1);
-                    margin-left: 15px;
-                    line-height: 32px;
-                }
-            }
-        } 
-        
-        //header
-        .ant-layout-header {
-            position: relative;
-            .trigger {
-                font-size: 18px;
-                line-height: 64px;
-                padding: 0 24px;
-                cursor: pointer;
-                transition: color .3s;
-                &:hover {
-                    color: #1890ff;
-                }
-            }
-            .right{
-                display: inline-block;
-                position: absolute;
-                right:5px;
-                width:215px;
-                .ant-badge-count{
-                    left: 18px;
-                }
-                .ant-avatar-sm{
-                    margin-left: 30px;
-                    margin-top: -7px;
-                }
-                span{
-                    margin-left: 5px;
-                    cursor: pointer;
-                }
-                .anticon {
-                    cursor: pointer;
-                    font-size: 20px;
-                    margin-left: 30px;
-                }
-            }
-        } 
-        
-        //footer
-        .footer {
-            // background-color: black;
-            // color:white;
-            text-align: center;
-        }
+.@{prefixCls} {
+  height: 100%;
+
+  .ant-layout-sider-children {
+  }
+
+  //header
+  .ant-layout-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      margin-left: 16px;
+      img {
+        height: 32px;
+      }
+      span {
+        color: rgba(29, 169, 255, 1);
+        margin-left: 15px;
+        line-height: 32px;
+      }
     }
+    .right {
+      margin-right: 16px;
+      .ant-dropdown-trigger {
+        margin-left: 15px;
+      }
+      span {
+        vertical-align: middle;
+        display: inline-block;
+        line-height: 24px;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  //footer
+  .footer {
+    // background-color: black;
+    // color:white;
+    text-align: center;
+  }
+}
