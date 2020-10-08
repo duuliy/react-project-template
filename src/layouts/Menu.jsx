@@ -73,7 +73,7 @@ class MenuTree extends Component {
       // 有子菜单项，并且子菜单必须有一个时显示
       if (item.children && showMenuItemLength) {
         return (
-          <SubMenu key={item.key} title={item.name}>
+          <SubMenu key={item.key} title={item.name} icon={item.icon}>
             {this.getMenu(item.children)}
           </SubMenu>
         )
