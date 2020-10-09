@@ -1,2 +1,3 @@
 import Aform from './common/Aform'
-export { Aform }
+import CustomForm from './common/CustomForm'
+export { Aform, CustomForm }

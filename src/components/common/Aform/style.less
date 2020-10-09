@@ -1,57 +1,24 @@
-@import '../../../assets/less/vars.less';
 //查询条件的相隔间距
 @search-item-separation-width: 30px;
 
-.custom-form {
-  //height: 46px;
-  .daterange-custom {
-    //height: 46px;
-  }
-
-  // 筛选表单
-  .filter-form {
-    padding: 18px 70px 25px 40px;
+@PrefixCls: Aform;
+.@{PrefixCls} {
+  &-filter-form {
+    // padding: 18px 70px 25px 40px;
     overflow: visible;
 
-    .ant-row {
-      .ant-col {
-        margin-bottom: 5px;
-      }
-    }
-
-    &-item,
-    .ant-select {
-      margin-bottom: 10px;
-    }
-
-    .ant-form-item {
-      // margin-right: 56px;
-    }
-
-    .ant-calendar-picker {
-      // width: 300px;
-      width: 275px;
-    }
-
-    .ant-form-item-label {
-      width: 100px;
-      // text-align: left;
-    }
-
     .show-ondition {
-      // float: right;
       margin-left: 50px;
       cursor: pointer;
     }
 
     .hide-form {
-      margin-top: 20px;
+      margin-top: 10px;
       width: 100%;
     }
 
     .search-item,
     .search-more-item {
-      //margin-left: 100px;
       button {
         margin-right: 16px;
       }
@@ -61,30 +28,7 @@
       margin-left: 0px;
     }
 
-    .date-box > div:first-child {
-      margin-right: 0;
-
-      .split {
-        margin: 0 40px;
-      }
-    }
-
-    .default-filter-item {
-      height: auto;
-      clear: both;
-    }
-
-    &-item,
-    .ant-select {
-      margin-bottom: 10px;
-    }
-
-    .ant-calendar-picker {
-      width: auto !important;
-    }
-
-    .hide-form,
-    .default-filter-item {
+    .hide-form {
       flex-wrap: wrap;
       display: flex;
 
@@ -108,51 +52,47 @@
         }
       }
 
-      .search-from-btn.search-from-no-margin-left {
-        margin-left: 0 !important;
-      }
+      // .search-from-btn.search-from-no-margin-left {
+      //   margin-left: 0 !important;
+      // }
 
-      .search-from-btn.search-item-separation {
-        margin-left: @search-item-separation-width !important;
-      }
+      // .search-from-btn.search-item-separation {
+      //   margin-left: @search-item-separation-width !important;
+      // }
 
-      .search-from-item {
-        flex: 0 0 calc(~'100% / 3 - 20px');
-        margin-right: 0;
+      //   .search-from-item {
+      //     // flex: 0 0 calc(~'100% / 3 - 20px'); //改成col切分
+      //     margin-right: 0;
 
-        .ant-col.ant-form-item-label {
-          width: 100px !important;
+      //     .ant-col.ant-form-item-label {
+      //       width: 100px !important;
 
-          label::after {
-            margin: 0 16px 0 4px !important;
-          }
-        }
+      //       label::after {
+      //         margin: 0 16px 0 4px !important;
+      //       }
+      //     }
 
-        .ant-col.ant-form-item-control-wrapper {
-          width: calc(~'100% - 100px');
+      //     .ant-col.ant-form-item-control-wrapper {
+      //       width: calc(~'100% - 100px');
 
-          .ant-form-item-children {
-            & > .ant-input,
-            & > .ant-select {
-              width: calc(~'100%') !important;
-            }
-          }
+      //       .ant-form-item-children {
+      //         & > .ant-input,
+      //         & > .ant-select {
+      //           width: calc(~'100%') !important;
+      //         }
+      //       }
 
-          .daterange-custom {
-            width: 100% !important;
-          }
-        }
-      }
+      //       .daterange-custom {
+      //         width: 100% !important;
+      //       }
+      //     }
+      //   }
 
-      .search-from-item.search-item-separation {
-        //请勿合并为margin，margin-top、margin-bottom要继承
-        margin-left: @search-item-separation-width !important;
-        margin-right: @search-item-separation-width !important;
-      }
-    }
-
-    .hide-form {
-      margin-top: 40px;
+      // .search-from-item.search-item-separation {
+      //   //请勿合并为margin，margin-top、margin-bottom要继承
+      //   margin-left: @search-item-separation-width !important;
+      //   margin-right: @search-item-separation-width !important;
+      // }
     }
 
     .hide-form.flex {
@@ -178,16 +118,14 @@
       }
     }
 
-    .ant-row {
-      margin-top: 4px;
-    }
-
     .ant-btn {
       width: 90px;
     }
 
-    .ant-form-item {
-      margin-bottom: 0;
+    .from-btn-center-wrap {
+      width: 100% !important;
+      display: flex;
+      justify-content: center;
     }
   }
 }

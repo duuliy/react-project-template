@@ -2,7 +2,6 @@ import { PureComponent } from 'react'
 import { DatePicker, message } from 'antd'
 import moment from 'moment'
 import PropTypes from 'prop-types'
-
 import './style.less'
 
 /**
@@ -153,8 +152,6 @@ export default class AdateRange extends PureComponent {
       }
     } else {
       // 只要选择任意一个都会触发change事件
-      // let _range = range.filter((e)=>e)
-      // _range = _range.length === range ? range : _range
       onChange && onChange(range)
     }
   }
@@ -163,19 +160,18 @@ export default class AdateRange extends PureComponent {
     const obj = { allowClear }
     const {
       values: [startValue, endValue],
+      PrefixCls,
     } = this.state
     // 重置时
     if (this.preRestKey !== this.nextResetKey) {
-      // obj.value = null
       this.preRestKey = this.nextResetKey
-      // this.setState({ values: [] })
     }
     let disabledArr = []
     if (disabledRange && disabledRange.length) {
       disabledArr = disabledRange
     }
     return (
-      <div className="daterange-custom" style={{ ...style }} key={this.nextResetKey}>
+      <div className={`${PrefixCls}-daterange-custom`} style={{ ...style }} key={this.nextResetKey}>
         <DatePicker
           getCalendarContainer={triggerNode => triggerNode.parentNode}
           disabled={disabledArr[0]}

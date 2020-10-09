@@ -1,20 +1,23 @@
-.daterange-custom {
-  display: flex;
+@PrefixCls: AdateRange;
+.@{PrefixCls} {
+  &-daterange-custom {
+    display: flex;
 
-  span {
-    display: inline-block;
+    span {
+      display: inline-block;
 
-    &:nth-child(1),
-    &:nth-child(3) {
-      flex-grow: 0;
-      flex-shrink: 0;
-      flex-basis: calc(~'(100% - 22px) / 2');
-    }
+      &:nth-child(1),
+      &:nth-child(3) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: calc(~'(100% - 22px) / 2');
+      }
 
-    &:nth-child(2) {
-      flex: 0 0 6px;
-      padding: 0 8px;
-      line-height: 32px;
+      &:nth-child(2) {
+        flex: 0 0 6px;
+        padding: 0 8px;
+        line-height: 22px;
+      }
     }
   }
 }
