@@ -1,3 +1,4 @@
 import Aform from './common/Aform'
 import CustomForm from './common/CustomForm'
-export { Aform, CustomForm }
+import DetailFiedls from './common/DetailFiedls'
+export { Aform, CustomForm, DetailFiedls }

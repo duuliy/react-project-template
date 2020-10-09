@@ -10,7 +10,7 @@ const { Option } = Select
 const { TextArea } = Input
 
 /**
- * props fieldList {Array} 查询条件的列表
+ * @props fieldList {Array} 查询条件的列表
  *        [
  *          {
  *            label: string, // 查询条件的显示名称
@@ -27,7 +27,7 @@ const { TextArea } = Input
  *            更多参数参考antd
  *          }
  *        ]
- * props  column { Number } 分多少列渲染
+ * @props  column { Number } 分多少列渲染
  */
 
 const Detail = ({ detailVal, render }) => <>{render ? render() : detailVal}</>

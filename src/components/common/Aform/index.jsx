@@ -11,13 +11,13 @@ const { Item: FormItem } = Form
 
 const defaultFieldsInit = [{ label: '综合查询', maxLength: 30, className: '', key: 'multipleQuery', span: 12, style: { width: 638 }, type: 'input', placeholder: '名称/编号/IP' }]
 /**
- * props  type search | form 查询条件的列表
- * props  defaultFields { Array } 默认查询条件， 参考fieldList
- * props  fieldList {Array} 查询条件的列表
- * props  onFinish { Function } 查询提交时的回调函数
- * props  onReset { Function } 重置
- * props  column { Number } 分多少列渲染
- * props  resetShow { Boolean } 是否显示 【重置】 按钮
+ * @props  type search | form 查询条件的列表
+ * @props  defaultFields { Array } 默认查询条件， 参考fieldList
+ * @props  fieldList {Array} 查询条件的列表
+ * @props  onFinish { Function } 查询提交时的回调函数
+ * @props  onReset { Function } 重置
+ * @props  column { Number } 分多少列渲染
+ * @props  resetShow { Boolean } 是否显示 【重置】 按钮
  */
 @withRouter
 class Aform extends PureComponent {
