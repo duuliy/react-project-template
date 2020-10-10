@@ -1,0 +1,47 @@
+@import '~@/assets/less/vars.less';
+
+@PrefixCls: Amodal;
+.@{PrefixCls} {
+  .ant-modal-header {
+    background: @bg-color-modal-content;
+    text-align: center;
+    .ant-modal-title {
+      color: white;
+    }
+  }
+  .children-wrap {
+    color: black;
+    // text-align: center;
+    margin-left: 20px;
+  }
+  .detail-wrap {
+    padding: 0 20px;
+  }
+  .ant-modal-body {
+    position: relative;
+    padding: 0;
+    // 超出最大高度滚动弹窗
+    .modal-content-wrap {
+      max-height: calc(~'100vh - 180px - 60px');
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-top: 30px;
+      padding-bottom: 10px;
+    }
+    .button-center {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      background: @bg-color-modal-content;
+    }
+    .successText {
+      font-size: 14px;
+      color: #fff;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 14px;
+    }
+  }
+}

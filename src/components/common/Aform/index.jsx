@@ -5,13 +5,14 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'umi'
 import { UpOutlined, DownOutlined } from '@ant-design/icons'
 import { CustomForm } from '@c/index'
+import cls from 'classnames'
 import './style.less'
 
 const { Item: FormItem } = Form
 
 const defaultFieldsInit = [{ label: '综合查询', maxLength: 30, className: '', key: 'multipleQuery', span: 12, style: { width: 638 }, type: 'input', placeholder: '名称/编号/IP' }]
 /**
- * @props  type search | form 查询条件的列表
+ * @props  type search | form
  * @props  defaultFields { Array } 默认查询条件， 参考fieldList
  * @props  fieldList {Array} 查询条件的列表
  * @props  onFinish { Function } 查询提交时的回调函数
@@ -47,6 +48,7 @@ class Aform extends PureComponent {
     fieldList: PropTypes.array,
     onFinish: PropTypes.func,
     onReset: PropTypes.func,
+    className: PropTypes.string,
   }
 
   //展开搜索条件
@@ -67,11 +69,12 @@ class Aform extends PureComponent {
   }, 300)
 
   render() {
-    const { fieldList, defaultFields, column, resetShow, okText, type } = this.props
+    const { fieldList, defaultFields, column, resetShow, okText, type, className } = this.props
     const { conditionShow, PrefixCls } = this.state
+    const classes = cls(`${PrefixCls}-filter-form`, className)
 
     return (
-      <Form className={`${PrefixCls}-filter-form`} layout="inline" ref={this.formRef} onFinish={this.onFinish}>
+      <Form className={classes} layout="inline" ref={this.formRef} onFinish={this.onFinish}>
         <CustomForm
           fieldList={defaultFields}
           column={column}

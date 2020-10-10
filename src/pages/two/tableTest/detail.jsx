@@ -26,7 +26,7 @@ const DetailTest = () => {
   return (
     <>
       详情
-      <DetailFiedls fields={fields} data={data} column={6} />
+      <DetailFiedls fieldList={fields} data={data} column={6} />
     </>
   )
 }

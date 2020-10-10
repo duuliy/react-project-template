@@ -32,7 +32,7 @@ const { TextArea } = Input
 
 const Detail = ({ detailVal, render }) => <>{render ? render() : detailVal}</>
 
-const CustomForm = ({ fieldList = [], column, getBuiltInBtn, FormItem }) => {
+const CustomForm = ({ fieldList = [], column, getBuiltInBtn, FormItem, className }) => {
   const PrefixCls = 'CustomForm'
   //渲染树
   const renderNodeTree = (data = {}, config = {}) => {
@@ -47,17 +47,17 @@ const CustomForm = ({ fieldList = [], column, getBuiltInBtn, FormItem }) => {
 
   //渲染form的组件
   const renderComponent = (item = {}, index) => {
-    const { type, label = '', key, initialValue, rules, placeholder, className, valuePropName = 'checked', validateTrigger, allowClear = true, data, config = {}, ...other } = item
+    const { type, label = '', key, initialValue, rules, placeholder, classItemName, valuePropName = 'checked', validateTrigger, allowClear = true, data, config = {}, ...other } = item
     let component = null
 
-    const classes = cls('search-from-item ', className, {
+    const classesItem = cls('search-from-item ', classItemName, {
       ['search-item-separation ']: index === 1,
     })
 
     // 自带组件
     if (item.component) {
       return (
-        <FormItem name={key} label={label} key={label + key} className={classes} initialValue={initialValue} rules={rules}>
+        <FormItem name={key} label={label} key={label + key} className={classesItem} initialValue={initialValue} rules={rules}>
           {item.component}
         </FormItem>
       )
@@ -156,7 +156,7 @@ const CustomForm = ({ fieldList = [], column, getBuiltInBtn, FormItem }) => {
         return null
     }
     return (
-      <FormItem name={key} label={label} key={label + key} initialValue={initialValue} validateTrigger={validateTrigger} rules={rules} valuePropName={valuePropName} className={classes}>
+      <FormItem name={key} label={label} key={label + key} initialValue={initialValue} validateTrigger={validateTrigger} rules={rules} valuePropName={valuePropName} className={classesItem}>
         {component}
       </FormItem>
     )
@@ -173,18 +173,22 @@ const CustomForm = ({ fieldList = [], column, getBuiltInBtn, FormItem }) => {
     )
   }
 
+  const classes = cls(PrefixCls, className)
+
   return (
-    <div className={PrefixCls}>
+    <div className={classes}>
       {renderFormItem(fieldList, column)}
       <Col span={24 / column}>{getBuiltInBtn && getBuiltInBtn()}</Col>
     </div>
   )
 }
+
 CustomForm.propTypes = {
   fieldList: PropTypes.array,
   column: PropTypes.number,
   getBuiltInBtn: PropTypes.func,
   FormItem: PropTypes.func,
+  className: PropTypes.string,
 }
 
 export default CustomForm

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { connect } from 'dva'
-import { Aform } from '@c/index'
+import { Aform, Amodal } from '@c/index'
 import { cloneDeep, throttle } from 'lodash'
 import moment from 'moment'
 
@@ -9,6 +9,7 @@ const TableTest = () => {
   let search = null
   const PrefixCls = 'TableTest'
   const history = useHistory()
+  const [visible, setVisible] = useState(true)
 
   const defaultFields = [
     { type: 'input', label: '补丁编号', disabled: true, initialValue: '666', placeholder: '请输入', key: 'antiyPatchNumber', allowClear: true, rules: [{ type: 'string', required: true, message: '请输入!' }] },
@@ -22,6 +23,22 @@ const TableTest = () => {
         { name: 556, value: 667 },
       ],
     },
+    { type: 'input', label: '补丁名称', placeholder: '请输入', key: 'patchName', allowClear: true, maxLength: 10 },
+    { type: 'dateRange', label: '发布时间', placeholder: ['开始时间', '结束时间'], key: 'aTime', future: true },
+    { type: 'input', label: '补丁名称', placeholder: '请输入', key: 'patchName', allowClear: true, maxLength: 10 },
+    { type: 'dateRange', label: '发布时间', placeholder: ['开始时间', '结束时间'], key: 'aTime', future: true },
+    { type: 'input', label: '补丁名称', placeholder: '请输入', key: 'patchName', allowClear: true, maxLength: 10 },
+    { type: 'dateRange', label: '发布时间', placeholder: ['开始时间', '结束时间'], key: 'aTime', future: true },
+    { type: 'input', label: '补丁名称', placeholder: '请输入', key: 'patchName', allowClear: true, maxLength: 10 },
+    { type: 'dateRange', label: '发布时间', placeholder: ['开始时间', '结束时间'], key: 'aTime', future: true },
+    { type: 'input', label: '补丁名称', placeholder: '请输入', key: 'patchName', allowClear: true, maxLength: 10 },
+    { type: 'dateRange', label: '发布时间', placeholder: ['开始时间', '结束时间'], key: 'aTime', future: true },
+    { type: 'input', label: '补丁名称', placeholder: '请输入', key: 'patchName', allowClear: true, maxLength: 10 },
+    { type: 'dateRange', label: '发布时间', placeholder: ['开始时间', '结束时间'], key: 'aTime', future: true },
+    { type: 'input', label: '补丁名称', placeholder: '请输入', key: 'patchName', allowClear: true, maxLength: 10 },
+    { type: 'dateRange', label: '发布时间', placeholder: ['开始时间', '结束时间'], key: 'aTime', future: true },
+    { type: 'input', label: '补丁名称', placeholder: '请输入', key: 'patchName', allowClear: true, maxLength: 10 },
+    { type: 'dateRange', label: '发布时间', placeholder: ['开始时间', '结束时间'], key: 'aTime', future: true },
     { type: 'input', label: '补丁名称', placeholder: '请输入', key: 'patchName', allowClear: true, maxLength: 10 },
     { type: 'dateRange', label: '发布时间', placeholder: ['开始时间', '结束时间'], key: 'aTime', future: true },
   ]
@@ -43,9 +60,39 @@ const TableTest = () => {
     history.push('/two/tableTest/edit')
   }
 
+  const onSubmit = values => {
+    console.log(values)
+  }
+
+  const onClose = () => {
+    setVisible(false)
+    console.log('关闭了')
+  }
+
   useEffect(() => {
     // console.log(search)
   }, [])
+
+  const fields = [
+    { key: 'categoryModelName', name: '类型', showTips: false },
+    { key: 'manufacturer', name: '厂商' },
+    { key: 'name', name: '名称' },
+    { key: 'version', name: '版本' },
+    { key: 'categoryModelName1', name: '类型', showTips: false },
+    { key: 'manufacturer1', name: '厂商', render: () => '按钮' },
+    { key: 'name1', name: '名称' },
+    { key: 'version1', name: '版本' },
+  ]
+  const data = {
+    categoryModelName: 666,
+    manufacturer: 666,
+    name: 666,
+    version: 666,
+    categoryModelName1: 666,
+    manufacturer1: 666,
+    name1: 666,
+    version1: 666,
+  }
 
   return (
     <div className={PrefixCls}>
@@ -54,6 +101,9 @@ const TableTest = () => {
       <br />
       <Aform defaultFields={defaultFields} fieldList={fieldList} aFromRef={now => (search = now)} onFinish={onFinish} onReset={onReset} />
       <br />
+      {/* <Amodal type="form" title="提交" width={650} fieldList={defaultFields} visible={visible} onSubmit={onSubmit} onClose={onClose} /> */}
+      {/* <Amodal type="normal" title="提交" width={650} children={666} visible={visible} onSubmit={onSubmit} onClose={onClose} /> */}
+      {/* <Amodal type="detail" title="提交" width={650} column={2} fieldList={fields} detailData={data} visible={visible} onSubmit={onSubmit} onClose={onClose} /> */}
     </div>
   )
 }

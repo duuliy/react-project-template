@@ -1,6 +1,7 @@
 import { Col, Row, Tooltip } from 'antd'
 import { chunk } from 'lodash'
 import PropTypes from 'prop-types'
+import cls from 'classnames'
 import './style.less'
 
 const overFlowObj = {
@@ -10,7 +11,7 @@ const overFlowObj = {
 }
 
 /**
- * @props fields{ Araay } 展示字段列表
+ * @props fieldList{ Araay } 展示字段列表
  *        [{
  *            key: 'String' 字段属性要取data数据的key值
  *            name: 'String' 字段显示的中文名
@@ -23,7 +24,7 @@ const overFlowObj = {
  * @props gutter { Number } 每个字段的间隔  单位为px
  */
 
-const DetailFiedls = ({ fields = [], data = {}, column = 4, gutter = 0 }) => {
+const DetailFiedls = ({ fieldList = [], data = {}, column = 4, gutter = 0, className = '' }) => {
   const PrefixCls = 'DetailFiedls'
 
   //渲染子列
@@ -56,7 +57,7 @@ const DetailFiedls = ({ fields = [], data = {}, column = 4, gutter = 0 }) => {
   //渲染多列
   const renderMultipleCol = () => {
     let row = column
-    return chunk(fields, row).map((el, idx) => {
+    return chunk(fieldList, row).map((el, idx) => {
       const className = column === 1 ? 'detail-from-content-row detail-from-content-one-row' : 'detail-from-content-row'
       return (
         <Row className={className} key={idx} gutter={gutter}>
@@ -67,14 +68,17 @@ const DetailFiedls = ({ fields = [], data = {}, column = 4, gutter = 0 }) => {
       )
     })
   }
-  return <div className={PrefixCls}>{renderMultipleCol()}</div>
+  const classes = cls(PrefixCls, className)
+
+  return <div className={classes}>{renderMultipleCol()}</div>
 }
 
 DetailFiedls.propTypes = {
-  fields: PropTypes.array,
+  fieldList: PropTypes.array,
   column: PropTypes.number,
   data: PropTypes.object,
   gutter: PropTypes.number,
+  className: PropTypes.string,
 }
 
 export default DetailFiedls
