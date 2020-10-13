@@ -1,10 +1,15 @@
-import request from '@u/request';
+import request from '@u/request'
 
 // 登录
 export const login = params => {
-  return request('post', '/user/login', params);
-};
+  return request('post', '/user/login', params)
+}
 // 退出登录
 export const logout = params => {
-  return request('post', '/user/logout', params);
-};
+  return request('post', '/user/logout', params)
+}
+
+//test mock request
+export const testMockAndRequest = () => {
+  return request('get', '/apc/users')
+}
