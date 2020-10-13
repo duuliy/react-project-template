@@ -43,10 +43,12 @@ const errPrompt = msg => {
 }
 
 const catchCB = err => {
+  console.log(err)
   let msg
   if (err && err.message === 'Failed to fetch') {
     msg = '网络异常，请检查网络连接'
-  } else if (err.response.status === 404) {
+  } else if (false) {
+    // err.response.status === 404
     msg = '找不到该请求'
   } else {
     //跟后台协商抛出错误提示
@@ -93,23 +95,24 @@ const request = (method, url, data = {}) => {
         })
         .then(checkStatus)
         .then(res => {
-          if (data.head.code === '429') {
+          if (data.status === '429') {
             //此时特殊情况单独处理请求不统一处理 在res=res.date地方处理
             // reject(data.body.message || data.body)
-            //resovle( res );
+            //resolve( res );
           } else {
             res = res.data //统一处理后，只获取需要的data
-            resovle(res)
+            resolve(res)
           }
         })
         .catch(err => {
+          console.log(err)
           const msg = catchCB(err)
           errPrompt(msg)
           // reject( error );
         })
     })
   } else if (method === 'delete') {
-    return new Promise((resovle, reject) => {
+    return new Promise((resolve, reject) => {
       axios
         .delete(baseUrl + url, {
           data: data,
@@ -120,10 +123,10 @@ const request = (method, url, data = {}) => {
           if (data.head.code === '429') {
             //此时特殊情况单独处理请求不统一处理 在res=res.date地方处理
             // reject(data.body.message || data.body)
-            //resovle( res );
+            //resolve( res );
           } else {
             res = res.data //统一处理后，只获取需要的data
-            resovle(res)
+            resolve(res)
           }
         })
         .catch(error => {
@@ -133,7 +136,7 @@ const request = (method, url, data = {}) => {
         })
     })
   } else {
-    return new Promise((resovle, reject) => {
+    return new Promise((resolve, reject) => {
       axios({
         method: method,
         url: baseUrl + url,
@@ -145,10 +148,10 @@ const request = (method, url, data = {}) => {
           if (data.head.code === '429') {
             //此时特殊情况单独处理请求不统一处理 在res=res.date地方处理
             // reject(data.body.message || data.body)
-            //resovle( res );
+            //resolve( res );
           } else {
             res = res.data //统一处理后，只获取需要的data
-            resovle(res)
+            resolve(res)
           }
         })
         .catch(error => {
