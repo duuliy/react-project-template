@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { connect } from 'dva'
 import { Aform, Amodal, Atable } from '@c/index'
 import { cloneDeep, throttle } from 'lodash'
 import { TooltipFn } from '@u/common'
 import moment from 'moment'
+import TestRef from './TestRef'
 
-const TableTest = () => {
+const TableTest = props => {
   let search = null
   const PrefixCls = 'TableTest'
   const history = useHistory()
   const [visible, setVisible] = useState(true)
+  const [scount, setScount] = useState(0)
+  const [scount2, setScount2] = useState(0)
 
   const defaultFields = [
     { type: 'input', label: '补丁编号', disabled: true, initialValue: '666', placeholder: '请输入', key: 'antiyPatchNumber', allowClear: true, rules: [{ type: 'string', required: true, message: '请输入!' }] },
@@ -123,7 +126,13 @@ const TableTest = () => {
 
   useEffect(() => {
     // console.log(search)
-  }, [])
+    // console.log(props.count) hooks和dva一起用
+    childCRef.current.changeVal(666)
+    document.title = `You clicked ${scount2} times`
+  }, [scount])
+
+  const domRef = useRef(null)
+  const childCRef = useRef(null)
 
   const fields = [
     { key: 'categoryModelName', name: '类型', showTips: false },
@@ -152,6 +161,18 @@ const TableTest = () => {
 
   return (
     <div className={PrefixCls}>
+      <TestRef tt={555} ref={childCRef} />
+      <input ref={domRef} />
+      <button
+        onClick={() => {
+          setScount(scount)
+          domRef.current.focus()
+          domRef.current.value = 'hh'
+        }}
+      >
+        ++
+      </button>
+      <button onClick={() => setScount2(scount2 + 1)}>2++</button>
       <button onClick={jumpDEtail}>去详情</button>
       <button onClick={jumpEdit}>去编辑</button>
       <br />
@@ -165,4 +186,8 @@ const TableTest = () => {
   )
 }
 
-export default TableTest
+// export default TableTest
+
+export default connect(({ common }) => ({
+  count: common.count,
+}))(TableTest)
