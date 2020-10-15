@@ -7,7 +7,12 @@ import { connect } from 'umi'
 class IndexPage extends PureComponent {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      testObj: {
+        a: 1,
+        b: 2,
+      },
+    }
   }
   render() {
     return (

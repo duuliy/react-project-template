@@ -127,6 +127,7 @@ const TableTest = props => {
   useEffect(() => {
     // console.log(search)
     // console.log(props.count) hooks和dva一起用
+    // props.dispatch({ type: 'xxx/fetchText' });
     childCRef.current.changeVal(666)
     document.title = `You clicked ${scount2} times`
   }, [scount])
@@ -165,7 +166,8 @@ const TableTest = props => {
       <input ref={domRef} />
       <button
         onClick={() => {
-          setScount(scount)
+          setScount(scount + 1)
+          console.log(scount)
           domRef.current.focus()
           domRef.current.value = 'hh'
         }}
