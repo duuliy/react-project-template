@@ -16,7 +16,7 @@ export const getToken = () => {
  */
 export const hasAuth = tag => {
   // const menus = JSON.parse(sessionStorage.menus || '[]'); //正式用这行，下面测试
-  const menus = ['one', 'one:OnLineMap', 'one:oneOffLineMap', 'one:oneOffLineMap:detail', 'two', 'two:LeafLetMap', 'two:twoTableTest', 'two:twoTableTest:detail', 'wo:twoTableTest:edit', 'four', 'four:fourOption13']
+  const menus = ['one', 'one:OnLineMap', 'one:oneOffLineMap', 'one:oneOffLineMap:detail', 'two', 'two:LeafLetMap', 'two:twoTableTest', 'two:twoTableTest:detail', 'two:twoVisualization', 'two:twoTableTest:edit', 'four', 'four:fourOption13']
   return menus.includes(tag)
 }
 /* 判断内容是否为空

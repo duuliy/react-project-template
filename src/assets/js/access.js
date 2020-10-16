@@ -16,6 +16,7 @@ export default {
   twoTableTest: 'two:twoTableTest',
   twoTableTestDetail: 'two:twoTableTest:detail',
   twoTableTestEdit: 'two:twoTableTest:edit',
+  twoVisualization: 'two:twoVisualization',
   //four
   four: 'four',
   fourOption13: 'four:fourOption13',

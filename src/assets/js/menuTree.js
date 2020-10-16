@@ -77,6 +77,13 @@ export default [
           },
         ],
       },
+      {
+        key: '/two/visualization',
+        name: '可视化',
+        tag: ACCSS.twoVisualization,
+        path: '/two/visualization',
+        show: true,
+      },
     ],
   },
   {

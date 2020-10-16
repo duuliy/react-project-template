@@ -36,6 +36,7 @@
     "yorkie": "^2.0.0"
   },
   "devDependencies": {
+    "@antv/g2": "^4.0.15",
     "classnames": "^2.2.6",
     "less": "^3.12.2",
     "lodash": "^4.17.20"

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { DetailFiedls } from '@c/index'
 import { Button } from 'antd'
+// import { observable } from 'mobx'
 
 const DetailTest = () => {
   const PrefixCls = 'tableTestDetail'
