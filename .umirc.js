@@ -39,8 +39,6 @@ export default defineConfig({
     'https://webapi.amap.com/maps?v=2.0&key=4a5b71a582d1245762d01a6cec855f61',
     'https://webapi.amap.com/ui/1.1/main.js?v=1.1.1',
     'http://localhost:9000/bigemap.js/v2.1.0/bigemap.js',
-    'https://lib.baomitu.com/mobx/5.15.4/mobx.js',
-    'https://lib.baomitu.com/mobx/5.15.4/mobx.umd.js',
     // 'http://localhost:9000/Public/offline/huge/glify.js',
   ],
   metas: [
@@ -87,6 +85,7 @@ export default defineConfig({
     '@c': reso(__dirname, './src/components'),
     '@u': reso(__dirname, './src/utils'),
     '@s': reso(__dirname, './src/services'),
+    '@stores': reso(__dirname, './src/stores'),
   },
   //修改webpack配置
   // chainWebpack(memo, { env, webpack, createCSSRule }) {

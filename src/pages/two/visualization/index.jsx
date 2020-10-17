@@ -1,6 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useReducer, createContext } from 'react'
 import { Chart } from '@antv/g2'
-// import { observable } from 'mobx'
+import TestReducer from '@c/visualization/TestReducer'
+import TestReducerBrother from '@c/visualization/TestReducerBrother'
+import { visualization } from '@stores/reducer'
+import { UserProvider, UserContext } from '@stores/context'
+// export const Ctx = createContext()
 const data = [
   { genre: 'Sports', sold: 275 },
   { genre: 'Strategy', sold: 115 },
@@ -11,7 +15,6 @@ const data = [
 
 const Visualization = () => {
   useEffect(() => {
-    // console.log(observable)
     const chart = new Chart({
       container: 'c1',
       width: 600,
@@ -27,10 +30,23 @@ const Visualization = () => {
     chart.render()
   }, [])
 
+  // const { initialState, reducer } = visualization
+  const { state, dispatch } = visualization()
+
+  // const [state, dispatch] = useReducer(
+  //   reducer,
+  //   initialState
+  //   // {type: 'reset', payload: initialCount}, //第三个参数目前还是提案
+  // )
+
   return (
     <div className="hhh">
       <div className="yyy">可视化</div>
       <div id="c1"></div>
+      <UserProvider value={{ state, dispatch }}>
+        <TestReducer />
+        <TestReducerBrother />
+      </UserProvider>
     </div>
   )
 }
