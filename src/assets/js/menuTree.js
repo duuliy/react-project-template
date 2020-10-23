@@ -84,6 +84,13 @@ export default [
         path: '/two/visualization',
         show: true,
       },
+      {
+        key: '/two/screenshot',
+        name: '截图',
+        tag: ACCSS.twoVisualization,
+        path: '/two/screenshot',
+        show: true,
+      },
     ],
   },
   {
