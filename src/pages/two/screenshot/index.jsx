@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import html2canvas from 'html2canvas'
 import OnLineMap from '../../one/onLineMap'
+import ImageEditor from 'image-editor-little'
 
 const Screenshot = () => {
   const PrefixCls = 'Screenshot'
+
+  const [editSrc, setEditSrc] = useState('https://miro.medium.com/max/3200/1*hLM2qGfy0VOTiyuyE3pOBA.png')
 
   //img转canvas
   const convertImageToCanvas = () => {
@@ -37,8 +40,11 @@ const Screenshot = () => {
 
     //截图
     html2canvas(document.querySelector('#capture')).then(canvas => {
-      console.log(canvas)
+      // var image = document.getElementById('myTulip2')
+      // image.src = canvas.toDataURL('image/png')
+
       // document.body.appendChild(canvas)
+      setEditSrc(canvas.toDataURL('image/png'))
       document.getElementById('save_href2').href = canvas.toDataURL('image/png')
     })
   }, [])
@@ -52,11 +58,14 @@ const Screenshot = () => {
       <a href="" download="canvas_love.png" id="save_href">
         <img id="myTulip" src="" alt="The Canvas" />
       </a>
+      react 截图
+      {/* <ImageEditor id="myTulip2" width={500} height={500} src="https://miro.medium.com/max/3200/1*hLM2qGfy0VOTiyuyE3pOBA.png" /> */}
+      <ImageEditor id="myTulip2" width={500} height={500} src={editSrc} />
       html2cancas
       <div id="capture" style={{ position: 'relative', padding: '10px', height: '1000px', background: '#f5da55' }}>
         <h4 style={{ color: '#000' }}>Hello world!</h4>
         <h4 style={{ position: 'absolute', bottom: 0 }}>end!</h4>
-        <OnLineMap />
+        {/* <OnLineMap /> */}
       </div>
       <a href="" download="canvas_love.png" id="save_href2">
         下载canvas
