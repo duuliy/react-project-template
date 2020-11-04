@@ -18,6 +18,10 @@ class IndexPage extends PureComponent {
     return (
       <div className="hhh">
         <div className="yyy">首页</div>
+        {/* 这个警告是哪个插件报的 */}
+        {[1, 2, 3].map(item => (
+          <div>{item}</div>
+        ))}
       </div>
     )
   }
