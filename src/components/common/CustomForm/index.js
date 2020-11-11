@@ -136,6 +136,7 @@ const CustomForm = ({ fieldList = [], column, getBuiltInBtn, FormItem, className
               )
             })}
           </Radio.Group>
+          // valuePropName = { valuePropName }
         )
         break
       }
@@ -156,7 +157,7 @@ const CustomForm = ({ fieldList = [], column, getBuiltInBtn, FormItem, className
         return null
     }
     return (
-      <FormItem name={key} label={label} key={label + key} initialValue={initialValue} validateTrigger={validateTrigger} rules={rules} valuePropName={valuePropName} className={classesItem}>
+      <FormItem name={key} label={label} key={label + key} initialValue={initialValue} validateTrigger={validateTrigger} rules={rules} className={classesItem}>
         {component}
       </FormItem>
     )

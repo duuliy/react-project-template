@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { UserProvider, UserContext } from '@stores/context'
+import { UserContext } from '@stores/context'
 
 const ReducerTest = () => {
   const { state, dispatch } = useContext(UserContext)
