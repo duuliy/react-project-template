@@ -110,4 +110,21 @@ export default [
       },
     ],
   },
+  {
+    key: '/cytoscape',
+    name: 'Cytoscape',
+    path: '/cytoscape',
+    tag: ACCSS.four,
+    show: true,
+    icon: <UploadOutlined />,
+    children: [
+      {
+        key: 'cytoscape/test',
+        name: 'test',
+        tag: ACCSS.fourOption13,
+        path: 'cytoscape',
+        show: true,
+      },
+    ],
+  },
 ]

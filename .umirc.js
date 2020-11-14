@@ -40,6 +40,7 @@ export default defineConfig({
     'https://webapi.amap.com/ui/1.1/main.js?v=1.1.1',
     'http://localhost:9000/bigemap.js/v2.1.0/bigemap.js',
     // 'http://localhost:9000/Public/offline/huge/glify.js',
+    // 'https://cdnjs.cloudflare.com/ajax/libs/cytoscape/2.3.15/cytoscape.js'
   ],
   metas: [
     {
