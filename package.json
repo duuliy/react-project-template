@@ -39,6 +39,7 @@
     "@antv/g2": "^4.0.15",
     "classnames": "^2.2.6",
     "cytoscape": "^3.17.0",
+    "cytoscape-context-menus": "^4.0.0",
     "html2canvas": "^1.0.0-rc.7",
     "image-editor-little": "^0.1.5",
     "less": "^3.12.2",
