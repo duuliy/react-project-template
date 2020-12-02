@@ -91,6 +91,13 @@ export default [
         path: '/two/screenshot',
         show: true,
       },
+      {
+        key: '/two/ConcurrentTest',
+        name: 'conCurrent模式',
+        tag: ACCSS.twoVisualization,
+        path: '/two/ConcurrentTest',
+        show: true,
+      },
     ],
   },
   {
