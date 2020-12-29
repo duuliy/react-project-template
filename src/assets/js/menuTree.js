@@ -127,9 +127,26 @@ export default [
     children: [
       {
         key: 'cytoscape/test',
-        name: 'test',
+        name: 'cytoscape',
         tag: ACCSS.fourOption13,
-        path: 'cytoscape',
+        path: '/cytoscape',
+        show: true,
+      },
+    ],
+  },
+  {
+    key: '/test',
+    name: 'test',
+    path: '/test',
+    tag: ACCSS.four,
+    show: true,
+    icon: <UploadOutlined />,
+    children: [
+      {
+        key: 'CreatePortal',
+        name: 'CreatePortal',
+        tag: ACCSS.fourOption13,
+        path: '/test/createPortal',
         show: true,
       },
     ],

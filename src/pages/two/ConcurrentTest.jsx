@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
+//如何验证优先级？
 const ConcurrentTest = () => {
   const [count, setCount] = useState(0)
   const buttonRef = useRef()
