@@ -39,6 +39,7 @@ const Visualization = () => {
   //   // {type: 'reset', payload: initialCount}, //第三个参数目前还是提案
   // )
 
+  console.log(888)
   return (
     <div className="hhh">
       <div className="yyy">可视化</div>

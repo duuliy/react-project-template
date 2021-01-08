@@ -18,6 +18,7 @@ class Layout extends PureComponent {
   static propTypes = {}
 
   render() {
+    console.log('000')
     const { children, location } = this.props
     if (location.pathname === '/404' || location.pathname === '/login') {
       return <Fragment>{children}</Fragment>

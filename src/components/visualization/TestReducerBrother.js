@@ -3,7 +3,7 @@ import { UserProvider, UserContext } from '@stores/context'
 
 const TestReducerBrother = () => {
   const { state, dispatch } = useContext(UserContext)
-  console.log(666)
+  console.log(777)
 
   return (
     <div className="hhh">

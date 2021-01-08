@@ -10,7 +10,7 @@ const ReducerTest = () => {
   //   initialState,
   //   // {type: 'reset', payload: initialCount}, //第三个参数目前还是提案
   // );
-
+  console.log(666)
   return (
     <div className="hhh">
       组件1
