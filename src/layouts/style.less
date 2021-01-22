@@ -1,51 +1,11 @@
-@import '../assets/less/common.less';
 @import '../assets/less/vars.less';
-@import '../assets/less/antdCom.less';
+@import '../assets/less/common.less';
+@import '../assets/less/restAntd.less';
 
-@prefixCls: BasicLayout;
+
+@prefixCls: layouts;
 
 .@{prefixCls} {
   height: 100%;
-
-  .ant-layout-sider-children {
-  }
-
-  //header
-  .ant-layout-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .logo {
-      margin-left: 16px;
-      img {
-        height: 32px;
-      }
-      span {
-        color: rgba(29, 169, 255, 1);
-        margin-left: 15px;
-        line-height: 32px;
-      }
-    }
-    .right {
-      margin-right: 16px;
-      .ant-dropdown-trigger {
-        margin-left: 15px;
-      }
-      span {
-        vertical-align: middle;
-        display: inline-block;
-        line-height: 24px;
-        margin-left: 5px;
-        cursor: pointer;
-      }
-    }
-  }
-
-  //footer
-  .footer {
-    // background-color: black;
-    // color:white;
-    text-align: center;
-  }
+  height: 100vh;
 }

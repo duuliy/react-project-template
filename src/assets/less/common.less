@@ -1,14 +1,13 @@
-@import 'vars.less';
+@import './vars.less';
+@import './restAntd.less';
+
 html,
 body {
   font-family: PingFang SC, Microsoft YaHei, Helvetica Neue, Helvetica, Hiragino Sans GB, SimSun, sans-serif;
   height: 100vh;
   margin: 0;
   font-size: 14px;
-  font-weight: 500;
 }
-
-/*添加*/
 
 body,
 div,
@@ -47,21 +46,60 @@ section {
   padding: 0;
 }
 
+#root {
+  margin-top: -22px;
+}
+
 /* 清除a的默认样式  */
 a,
 a:hover,
 a:active,
 a:link {
   text-decoration: none;
-  color: #333;
+  color: #31A0FF;
 }
 
+/* 滚动条样式  */
+// ::-webkit-scrollbar {
+//   width: 5px;
+//   height: 5px;
+// }
+
+// ::-webkit-scrollbar-track {
+//   border-radius: 0;
+//   padding: 2px;
+//   box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.4);
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   border-radius: 3px;
+//   background-color: rgba(255, 255, 255, 0.2);
+// }
+
+// ::-webkit-scrollbar-thumb:window-inactive {
+//   background-color: rgba(255, 255, 255, 0.2);
+// }
+
+// :hover::-webkit-scrollbar-thumb {
+//   background-color: #31A0FF;
+// }
+
+/* 鼠标手势  */
+.hand {
+  cursor: pointer;
+}
+
+/* li默认没有样式  */
 ul,
 li {
   list-style: none;
 }
 
-/* 浮动与清除浮动 */
+.red {
+  color: red;
+}
+
+/* 浮动 */
 
 .fl {
   float: left;
@@ -70,11 +108,9 @@ li {
 .fr {
   float: right;
 }
-table tr td:not(.ant-table-selection-column) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+
+
+/* 清除浮动 */
 .clearfix:after {
   content: '';
   display: block;
@@ -85,13 +121,6 @@ table tr td:not(.ant-table-selection-column) {
 
 .clearfix {
   zoom: 1;
-}
-.no-padding {
-  padding: 0 !important;
-}
-
-.disable-btn {
-  color: #bbb !important;
 }
 
 /*水平垂直居中(不确定宽高)*/
@@ -119,19 +148,18 @@ table tr td:not(.ant-table-selection-column) {
 
 //禁止样式
 .disable {
-  border-color: #c2c2c2;
-  color: #c2c2c2;
+  border-color: @disable-color ;
+  color: @disable-color ;
   cursor: not-allowed;
 
   &:hover {
-    border-color: #c2c2c2;
-    color: #c2c2c2;
+    border-color: @disable-color ;
+    color: @disable-color
   }
 }
 
 // 居中按钮
 .button-center {
-  margin-top: 40px;
   display: flex;
   justify-content: space-around;
 
@@ -148,7 +176,7 @@ table tr td:not(.ant-table-selection-column) {
 
 //文字超长，截断，以...代替
 .text-ellipsis {
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }

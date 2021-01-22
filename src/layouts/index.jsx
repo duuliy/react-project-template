@@ -1,42 +1,41 @@
-import React, { PureComponent, Fragment } from 'react'
-import { connect } from 'dva'
-import BaseLayout from './BaseLayout'
-import { ConfigProvider } from 'antd'
-import zhCN from 'antd/es/locale/zh_CN'
-// import Context from './MenuContext';
-// import cls from 'classnames';
-// import moment from 'moment';
+import React, { Fragment } from 'react'
+import { useHistory } from 'react-router-dom'
+import { hot } from 'react-hot-loader/root'
+import { Layout } from 'antd'
+import Footer from './footer'
+import HeaderView from './header-view'
+import config from '@/config'
+import { Provider } from 'react-redux'
+import stores from '@stores'
+import './style.less'
 
-@connect(({ common, loading }) => ({ common, loading }))
-class Layout extends PureComponent {
-  state = {
-    catalogs: {},
-  }
+const Layouts = ({ children }) => {
+  const history = useHistory()
+  const { location } = history
+  const PrefixCls='layouts'
 
-  static defaultProps = {}
-
-  static propTypes = {}
-
-  render() {
-    console.log('000')
-    const { children, location } = this.props
-    if (location.pathname === '/404' || location.pathname === '/login') {
-      return <Fragment>{children}</Fragment>
-    }
-    //重定向自己写
-    // if (!sessionStorage.menus) this.props.history.push('/login')
-    // if (location.pathname === '/' && sessionStorage.menus) this.props.history.push('/indexPage')
-
+  if (['/404', '/401', '/login'].includes(location.pathname)) {
     return (
-      <ConfigProvider locale={zhCN}>
-        <BaseLayout>{children}</BaseLayout>
-      </ConfigProvider>
+      <Fragment>
+        {children}
+      </Fragment>
     )
   }
 
-  componentDidMount() {}
-
-  componentDidUpdate() {}
+  return <Layout className={PrefixCls}>
+      <Provider store={stores}>
+        <HeaderView name={config.siteName} />
+        {children}
+        <Footer name={config.footer} />
+      </Provider>
+    </Layout>
+    // <ConfigProvider
+    //   locale={zhCN}
+    //   componentSize="small"
+    //   renderEmpty={customizeRenderEmpty}
+    // >
+    // </ConfigProvider>
+  
 }
 
-export default Layout
+export default hot(Layouts)

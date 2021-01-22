@@ -1,0 +1,46 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime",
+    "react-hot-loader/babel",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": true
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "modules": "auto"
+          }
+        ],
+        "@babel/preset-react",
+        "jest"
+      ],
+      "plugins": [
+        "@babel/plugin-transform-runtime"
+      ]
+    },
+    "development": {
+      "plugins": [
+        "lodash"
+      ]
+    }
+  }
+}

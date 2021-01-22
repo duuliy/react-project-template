@@ -1,5 +1,5 @@
-import * as login from './login'
+import * as apiCommon from './pageTest'
 
 export default {
-  ...login,
+  ...apiCommon
 }
