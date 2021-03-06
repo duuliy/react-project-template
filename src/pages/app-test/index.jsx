@@ -5,17 +5,17 @@ import { cloneDeep } from 'lodash'
 import { DatePicker } from 'antd'
 import { Icon } from '@components'
 import cls from 'classnames'
-import { add, reduce } from '@stores/actions/count'
+import { add, reduce, getData } from '@stores/actions/count'
 import { useSelector, useDispatch } from 'react-redux'
 
 const AppTest = () => {
   const className='duuliy'
-  const { number, number2 } = useSelector(state => state.count)
+  const { number, number2, data } = useSelector(state => state.count)
   const dispatch = useDispatch();
 
   const getCake=async ()=>{
-    const res= await api.getCake()
-    console.log(cloneDeep(res))
+    await dispatch(getData())
+    // const res= await api.getCake()
   }
 
   const onChange=(val)=>{
@@ -26,6 +26,11 @@ const AppTest = () => {
 
     getCake()
   },[])
+
+  useEffect(() => {
+
+    console.log(data)
+  }, [data])
 
   return (
     <div className={cls("dsd", className)}>

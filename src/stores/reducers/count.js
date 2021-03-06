@@ -2,7 +2,8 @@ import { produce } from 'immer'
 
 const init = {
   number: 0,
-  number2: 222
+  number2: 222,
+  data:{}
 }
 
 export default (state = init, action) => produce(state, draft =>{
@@ -17,6 +18,10 @@ export default (state = init, action) => produce(state, draft =>{
       return void (0)
     case 'reduceCount2':
       draft.number2= draft.number2+2
+      // return { ...state, number2: action.count2 + 2 }
+      return void (0)
+    case 'getData':
+      draft.data = action.data
       // return { ...state, number2: action.count2 + 2 }
       return void (0)
     default:
