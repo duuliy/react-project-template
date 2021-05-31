@@ -102,7 +102,7 @@ module.exports = () => {
               options: {
                 sourceMap: false,
                 lessOptions: {
-                  // javascriptEnabled: true
+                  javascriptEnabled: true
                 }
               }
             }
