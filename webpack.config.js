@@ -50,6 +50,9 @@ module.exports = () => {
         },
       }
     },
+    watchOptions: {
+      ignored: /node_modules/,
+    },
     module: {
       rules: [
         {
@@ -99,7 +102,7 @@ module.exports = () => {
               options: {
                 sourceMap: false,
                 lessOptions: {
-                  javascriptEnabled: true
+                  // javascriptEnabled: true
                 }
               }
             }
