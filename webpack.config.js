@@ -11,7 +11,7 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const apiMocker = require('mocker-api')
-const { port, version, enableBundleAnalyzer } = require("./config")
+const { port, host, headers, version, enableBundleAnalyzer } = require("./config")
 
 const env = process.env.NODE_ENV || 'dev'
 const isDev = env === 'dev'
@@ -34,6 +34,8 @@ module.exports = () => {
       hot: true,
       inline: true,
       port,
+      host,
+      headers,
       before: app => {
         apiMocker(app, path.resolve('./mock/index'), {
           changeHost: true,
