@@ -72,7 +72,6 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.12.5",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
-    "add": "^2.0.6",
     "antd": "^4.10.3",
     "autoprefixer": "^8.2.0",
     "axios": "^0.21.1",
