@@ -64,6 +64,11 @@
       "@/(.*)": "<rootDir>/src/$1"
     }
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
   "devDependencies": {
     "@babel/core": "7.12.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
@@ -72,6 +77,9 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.12.5",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "husky": "^4.2.5",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "antd": "^4.10.3",
     "autoprefixer": "^8.2.0",
     "axios": "^0.21.1",

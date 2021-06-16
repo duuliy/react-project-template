@@ -6,3 +6,5 @@ module.exports = {
     'subject-case': [0, 'never']
   }
 }
+
+// "pre-commit": "yarn test" 暂时不用,husky提交时候跑单测
