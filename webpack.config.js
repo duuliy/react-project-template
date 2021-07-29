@@ -289,11 +289,11 @@ module.exports = () => {
   } else {
     options.plugins = options.plugins.concat([
       new CleanWebpackPlugin(),
-      new HardSourceWebpackPlugin(),
+      new HardSourceWebpackPlugin(), //可能会导致缓存检查不及时，打包失败
       new MiniCssExtractPlugin({
         filename: `${version}/[name].css`,
         chunkFilename: `${version}/[name].[contenthash].css`,
-      }),
+      })
     ])
   }
 
