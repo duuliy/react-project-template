@@ -24,7 +24,12 @@ const AppTest = () => {
   }
 
   useEffect(()=>{
-
+    const obj={
+      gg:{
+        kk:666
+      }
+    }
+    console.log(obj?.gg?.kk)
     getCake()
   },[])
 
