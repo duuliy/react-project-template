@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { setHeaders } from './common.js'
 import { message } from 'antd'
+import qs from 'qs'
 import config from '../config'
 
 //测试环境，服务器环境，线上环境
@@ -55,7 +56,7 @@ const request = (method, url, data = {}, mock = false) => {
 
   if (method === 'get') {
     return new Promise((resolve, reject) => {
-      url = `${url}?${JSON.stringify(data)}`
+      url = `${url}?${qs.stringify(data)}`
       axios.get(baseUrl + url, {
         headers: headers,
       })
