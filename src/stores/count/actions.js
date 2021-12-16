@@ -44,3 +44,16 @@ export const getData = () => {
     })
   }
 }
+
+export const getData2 = () => {
+  return async (dispatch) => {
+    const res = await api.getCake()
+    dispatch({
+      type: 'getData',
+      data: res
+      // payload: {
+      //   list
+      // }
+    })
+  }
+}

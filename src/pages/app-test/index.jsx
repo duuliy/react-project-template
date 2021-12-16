@@ -5,9 +5,8 @@ import { cloneDeep } from 'lodash'
 import { DatePicker } from 'antd'
 import { Icon } from '@components'
 import cls from 'classnames'
-import { add, reduce, getData } from '@stores/count/actions'
+import { getData } from '@stores/count/effects'
 import { useSelector, useDispatch } from 'react-redux'
-import { COUNT_REDUCE2 } from '@stores/count/actionTypes'
 
 const AppTest = () => {
   const className='duuliy'
@@ -16,7 +15,6 @@ const AppTest = () => {
 
   const getCake=async ()=>{
     await dispatch(getData())
-    // const res= await api.getCake()
   }
 
   const onChange=(val)=>{
@@ -47,12 +45,12 @@ const AppTest = () => {
       <DatePicker onChange={onChange} />
       <p>{number}</p>
       <p>{number2}</p>
-      <button onClick={() => dispatch(reduce(number))}>-</button>
-      <button onClick={() => dispatch(add(number))}>+</button>
+      <button onClick={() => dispatch({ type: 'count/add'})}>+</button>
+      <button onClick={() => dispatch({ type: 'count/reduce' })}>-</button>
       <button onClick={() => dispatch({
-        type: COUNT_REDUCE2,
-        count2:number2
-      })}>+2</button>
+        type: 'count/reduce2',
+        number2:666
+      })}>赋值</button>
       <p>{moment().format()}</p>
     </div>
   )
