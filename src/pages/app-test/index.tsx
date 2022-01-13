@@ -18,6 +18,7 @@ type CountType = {
 type StateType = {
   count: CountType
 }
+
 const AppTest = () => {
   const className = 'duuliy'
   const { number, number2, data } = useSelector<StateType>(state => state.count) as CountType
