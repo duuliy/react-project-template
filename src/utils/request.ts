@@ -1,14 +1,26 @@
 import axios from 'axios'
-import { setHeaders } from './common.js'
+import { setHeaders } from './common'
 import { message } from 'antd'
 import qs from 'qs'
 import config from '../config'
+
+type MethodType = 'get' | 'post' | 'delete' | 'put' | 'patch'
+type BodyType = {
+  msg: string,
+  body: object,
+  code: string
+}
+type ResType = {
+  status: number,
+  data: BodyType,
+  statusText:string
+}
 
 //测试环境，服务器环境，线上环境
 // let baseUrl = 'http://39.108.82.150:81/index.php/api/';
 const baseUrl = ''
 
-function checkStatus(res) {
+function checkStatus(res: ResType) {
   if (res.status >= 200 && res.status < 300) {
     return res.data
   } else {
@@ -16,12 +28,12 @@ function checkStatus(res) {
     // sessionStorage.clear()
     // window.location.href = '/#/login'  //登录有了开
   }
-  const error = new Error(res.statusText)
+  const error = new Error(res.statusText) as any
   error.res = res
   throw error
 }
 
-const errPrompt = msg => {
+const errPrompt = (msg:string) => {
   message.destroy()
   message.error(msg)
 }
@@ -35,12 +47,12 @@ const errPrompt = msg => {
  * @return {object}           An object containing either "payload" or "err"
  */
 
-const request = (method, url, payload = {}, mock = false) => {
+const request = (method: MethodType, url:string, payload = {}, mock = false) => {
   url = (config.mock ? config.mock : mock) ? `/mock${url}` : `/api${url}`
   // 由于ID加密，密文可能存在特殊字符，如"/"，无法用url传参，可以用encodeURIComponent对url中的参数进行编码来避免以上问题
   const headers = setHeaders(payload)
 
-  const loginOutCodes = [
+  const loginOutCodes: string[] = [
     '401', // 没有权限
     '403', // 权限过期
     '422', // 当前账号已有其他人使用，您被退出，请检查账号信息或联系管理员
@@ -62,9 +74,9 @@ const request = (method, url, payload = {}, mock = false) => {
       })
         .then(checkStatus)
         .then(res => {
-          if (res.code==='200') {
+          if (res.code === '200') {
             resolve(res.body)
-          } else if (loginoutCodes.indexOf(res.code) !== -1){
+          } else if (loginOutCodes.indexOf(res.code) !== -1) {
             errPrompt(res.msg)
             window.location.href = '/#/login'
             reject(res.body)
@@ -89,7 +101,7 @@ const request = (method, url, payload = {}, mock = false) => {
         .then(res => {
           if (res.code === '200') {
             resolve(res.body)
-          } else if (loginoutCodes.indexOf(res.code) !== -1) {
+          } else if (loginOutCodes.indexOf(res.code) !== -1) {
             errPrompt(res.msg)
             window.location.href = '/#/login'
             reject(res.body)

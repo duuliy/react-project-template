@@ -5,16 +5,16 @@ const initState = {
 }
 
 const reducers = {
-  add(state, action) {
+  add(state:any, action:any) {
     state.number+=1
   },
-  reduce(state, action) {
+  reduce(state:any, action:any) {
     state.number -= 1
   },
-  reduce2(state, action) {
+  reduce2(state:any, action:any) {
     state.number2 = action.number2
   },
-  getData(state, action) {
+  getData(state:any, action:any) {
     state.data = action.data
   },
 }

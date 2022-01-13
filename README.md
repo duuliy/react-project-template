@@ -87,7 +87,7 @@ import request from "@/services"
 ## 特别注意
 
 随着webpack升级而维护，webpack5坑比较多
-后续增加ts
+
 
 
 ## License

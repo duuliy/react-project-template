@@ -2,8 +2,8 @@ import api from '@services/api'
 import { COUNT_ADD, COUNT_REDUCE, COUNT_GET_DATA} from './actionTypes'
 
 //这里抽一层数据层 async await 处理接口
-export const add = (count) => {
-  return (dispatch) => {
+export const add = (count:number) => {
+  return (dispatch:any) => {
     dispatch({
       type: COUNT_ADD,
       count
@@ -11,8 +11,8 @@ export const add = (count) => {
   }
 }
 
-export const reduce = (count) => {
-  return (dispatch) => {
+export const reduce = (count: number) => {
+  return (dispatch: any) => {
     dispatch({
       type: COUNT_REDUCE,
       count
@@ -33,7 +33,7 @@ export const reduce = (count) => {
 // }
 
 export const getData = () => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     const res = await api.getCake()
     dispatch({
       type: COUNT_GET_DATA,
@@ -46,7 +46,7 @@ export const getData = () => {
 }
 
 export const getData2 = () => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     const res = await api.getCake()
     dispatch({
       type: 'getData',
