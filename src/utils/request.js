@@ -64,7 +64,7 @@ const request = (method, url, payload = {}, mock = false) => {
         .then(res => {
           if (res.code==='200') {
             resolve(res.body)
-          } else if (loginoutCodes.indexOf(res.code) !== -1){
+          } else if (loginOutCodes.indexOf(res.code) !== -1){
             errPrompt(res.msg)
             window.location.href = '/#/login'
             reject(res.body)
@@ -89,7 +89,7 @@ const request = (method, url, payload = {}, mock = false) => {
         .then(res => {
           if (res.code === '200') {
             resolve(res.body)
-          } else if (loginoutCodes.indexOf(res.code) !== -1) {
+          } else if (loginOutCodes.indexOf(res.code) !== -1) {
             errPrompt(res.msg)
             window.location.href = '/#/login'
             reject(res.body)
