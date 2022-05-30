@@ -184,6 +184,7 @@ module.exports = () => {
       },
     },
     optimization: {
+      usedExports: true,
       concatenateModules: true,
       splitChunks: {
         chunks: "all",
