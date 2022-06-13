@@ -134,7 +134,7 @@ module.exports = () => {
             {
               loader: "file-loader",
               options: {
-                name: `${version}/[name].[hash:8].[ext]`,
+                name: `${version}/[name].[contenthash].[ext]`,
                 limit: 50000
               }
             }
