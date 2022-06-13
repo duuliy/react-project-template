@@ -69,6 +69,7 @@
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
+  "sideEffects": false,
   "devDependencies": {
     "@babel/core": "7.12.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
