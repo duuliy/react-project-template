@@ -4,7 +4,9 @@
 
 react+hooks+ES6+webpack@4.X+babel@7.x 
 
-如需使用 TypeScript, 请使用 `typescript` 分支
+如需使用 TypeScript, 请使用 `dev-ts` 分支
+
+如需使用 Webpack@5+Antd@5+react@18, 请使用 `dev-webpack5` 分支
 
 Have Fun !
 
