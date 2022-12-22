@@ -30,14 +30,14 @@ module.exports = () => {
     },
     devServer: {
       compress: true,
-      clientLogLevel: 'warning',
-      hot: true,
-      inline: true,
+      client: {
+        logging: "warn"
+      },
       port,
       host,
       headers,
-      before: app => {
-        apiMocker(app, path.resolve('./mock/index'), {
+      onBeforeSetupMiddleware(devServer) {
+        apiMocker(devServer.app, path.resolve('./mock/index'), {
           changeHost: true,
         })
       },
@@ -109,6 +109,7 @@ module.exports = () => {
               }
             }
             ],
+          sideEffects: true //不要tree shaking css
         },
         {
           test: lessModuleRegex,
@@ -126,6 +127,7 @@ module.exports = () => {
             },
             'postcss-loader',
           ],
+          sideEffects: true //不要tree shaking css
         },
         {
           test: /\.(jpg|jpeg|png|gif|cur|ico|eot|ttf|svg|woff|woff2)$/,
@@ -149,20 +151,20 @@ module.exports = () => {
               loader: 'svgo-loader',
               options: {
                 plugins: [
-                  { removeTitle: true },
-                  { convertColors: { shorthex: true } },
-                  { convertPathData: true },
-                  { removeComments: true },
-                  { removeDesc: true },
-                  { removeUselessDefs: true },
-                  { removeEmptyAttrs: true },
-                  { removeHiddenElems: true },
-                  { removeEmptyText: true },
-                  { removeUselessStrokeAndFill: true },
-                  { moveElemsAttrsToGroup: true },
-                  { removeStyleElement: true },
-                  { cleanupEnableBackground: true },
-                  { removeAttrs: { attrs: '(stroke|fill|filter)' } },
+                  { name: 'convertColors', params: { shorthex: true } },
+                  { name: 'removeTitle', active: true },
+                  { name: 'convertPathData', active: true },
+                  { name: 'removeComments', active: true },
+                  { name: 'removeDesc', active: true },
+                  { name: 'removeUselessDefs', active: true },
+                  { name: 'removeEmptyAttrs', active: true },
+                  { name: 'removeHiddenElems', active: true },
+                  { name: 'removeEmptyText', active: true },
+                  { name: 'removeUselessStrokeAndFill', active: true },
+                  { name: 'moveElemsAttrsToGroup', active: true },
+                  { name: 'removeStyleElement', active: true },
+                  { name: 'cleanupEnableBackground', active: true },
+                  { name: 'removeAttrs', params: { attrs: '(stroke|fill|filter)'}},
                 ],
               },
             },
@@ -184,6 +186,7 @@ module.exports = () => {
       },
     },
     optimization: {
+      nodeEnv: env,
       usedExports: true,
       concatenateModules: true,
       splitChunks: {
@@ -236,7 +239,8 @@ module.exports = () => {
             }
           }),
           new OptimizeCssAssetsPlugin({
-            cssProcessor: require("cssnano"),
+            // cssProcessor: require("cssnano"),
+            cssProcessorPlugin: require("cssnano"),
             cssProcessorOptions: { discardComments: { removeAll: true } },
             canPrint: true
           })
@@ -244,11 +248,14 @@ module.exports = () => {
     },
     plugins: [
       new ProgressBarPlugin(),
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      new LodashModuleReplacementPlugin(),
-      new webpack.DefinePlugin({
-        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment/,
       }),
+      new LodashModuleReplacementPlugin(),
+      // new webpack.DefinePlugin({
+      //   "process.env.NODE_ENV": JSON.stringify(env)
+      // }),
       new webpack.ProvidePlugin({
         React: 'react',
         moment: 'moment',
@@ -286,11 +293,11 @@ module.exports = () => {
   }
   if (isDev) {
     options.plugins = options.plugins.concat([new webpack.HotModuleReplacementPlugin()])
-    options.devtool = 'cheap-module-eval-source-map'
+    options.devtool = 'eval-cheap-module-source-map'
   } else {
     options.plugins = options.plugins.concat([
       new CleanWebpackPlugin(),
-      new HardSourceWebpackPlugin(), //可能会导致缓存检查不及时，打包失败
+      // new HardSourceWebpackPlugin(), //可能会导致缓存检查不及时，打包失败
       new MiniCssExtractPlugin({
         filename: `${version}/[name].css`,
         chunkFilename: `${version}/[name].[contenthash].css`,

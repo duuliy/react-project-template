@@ -2,11 +2,9 @@
 
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
-react+hooks+ES6+webpack@4.X+babel@7.x 
+react+hooks+ES6+webpack@5.X+babel@7.x 
 
-如需使用 TypeScript, 请使用 `dev-ts` 分支
-
-如需使用 Webpack@5+Antd@5+react@18, 请使用 `dev-webpack5` 分支
+如需使用 TypeScript, 请使用 `typescript` 分支
 
 Have Fun !
 
@@ -30,12 +28,12 @@ npm start
 
 ## 相关技术栈
 
-* react@17
-* webpack@4
+* react@18
+* webpack@5
 * babel@7
-* react-router-dom@5
-* react-redux@7
-* antd@4
+* react-router-dom@6
+* react-redux@8
+* antd@5
 
 ## 关于 jest
 
@@ -91,7 +89,7 @@ import request from "@/services"
 
 ## 特别注意
 
-随着webpack升级而维护，webpack5坑比较多
+随着webpack升级而维护
 
 
 ## License

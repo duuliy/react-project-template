@@ -1,11 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from "react-dom/client"
 import RoutersMap from '@/routers/routersMap'
 import { ConfigProvider } from "antd"
 import zhCN from "antd/lib/locale-provider/zh_CN"
 import moment from "moment"
 import "moment/locale/zh-cn"
-import './assets/icons'
+require('./assets/icons')  //在webpack5这里import的话会被tree sharking
 
 moment.locale("zh-cn")
 
@@ -14,14 +14,11 @@ if (module.hot) {
   module.hot.accept()
 }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <ConfigProvider locale={zhCN} componentSize="small">
-      <RoutersMap />
-    </ConfigProvider>
-  </React.StrictMode>
-  ,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
+  <ConfigProvider locale={zhCN} componentSize="small">
+    <RoutersMap />
+  </ConfigProvider>
 )
 
 

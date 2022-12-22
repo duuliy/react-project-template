@@ -1,6 +1,5 @@
 import { useEffect, useReducer } from 'react'
 import './style.less'
-import api from '@services/api'
 import { cloneDeep } from 'lodash'
 import { DatePicker, Button } from 'antd'
 import { Icon } from '@components'
@@ -10,7 +9,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { produce } from 'immer'
 
 const reducerTest=(state, payload) => ({ ...state, ...payload })
-
 const AppTest = () => {
   const className='duuliy'
   const { number, number2, data } = useSelector(state => state.count)
@@ -58,8 +56,10 @@ const AppTest = () => {
         {tests.test1},
         {tests.test2}
       </span>
-      <Button onClick={changeReducer}>测试reducer</Button>
-      <Icon name="file" fill='black' style={{ marginLeft: 100 }} />
+      <Button type="primary" onClick={changeReducer}>测试reducer</Button>
+      <Icon name="file" fill='black' style={{ marginLeft: 20  }} />
+      999
+      {/* <img src={require('@assets/icons/file.svg')} alt="555" /> */}
       <DatePicker onChange={onChange} />
       <p>{number}</p>
       <p>{number2}</p>
